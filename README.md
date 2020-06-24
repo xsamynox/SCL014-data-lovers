@@ -61,23 +61,23 @@ Estos son datos que te proponemos:
   [Pokémon GO](http://pokemongolive.com).
    - [Investigación con jugadores de Pokémon Go](/src/data/pokemon/README.md)
 
+
 * [League of Legends - Challenger leaderboard](src/data/lol/lol.json):
   Este set de datos muestra la lista de campeones en una liga del
   juego League of Legends (LoL).
    - [Investigación con jugadores de LoL](/src/data/lol/README.md)
+
+
+* [Harry Potter](src/data/potter/potter.json).
+     Este set de datos muestra la lista de los personajes del mundo de [Harry Potter: Wizards Unite](https://www.wizardingworld.com/), junto con sus respectivas características mencionadas en la serie de novelas de Harry Potter escrita por la autora británica J.K.Rowling.
+     - [Investigación con jugadores de Harry Potter: Wizards Unite](src/data/potter/README.md)
+
 
 * [Atletas Olímpicos](src/data/atletas/atletas.json).
   Este set nos proporciona la lista de los atletas que ganaron medallas en las
   olímpiadas de invierno y verano del siglo XXI.
    - [Investigación con interesados en atletas olímpicos](/src/data/atletas/README.md)
 
-<!---
-¡Too much information para comenzar (Diego)!
-Una opción serían cálculos estadísticos como el promedio, el máximo o el mínimo,
-por ejemplo, si tenemos una colección que representa a un grupo de personas,
-y cada persona está representada como un _objeto_ con una _propiedad_ `altura`,
-podríamos elegir calcular la altura promedio en el grupo entre otras cosas.
---->
 
 ## 3. Objetivos de aprendizaje
 
@@ -269,8 +269,12 @@ como toda la configuración de dependencias:
 |  |  |  ├── pokemon.json
 |  |  |  └── README.md
 |  |  └── atletas
-|  |     ├── atletas.js
-|  |     └── atletas.json
+|  |  |  ├── atletas.js
+|  |  |  └── atletas.json
+|  |  |  └── README.md
+|  |  └── potter
+|  |     ├── potter.js
+|  |     └── potter.json
 |  |     └── README.md
 |  ├── data.js
 |  ├── index.html
