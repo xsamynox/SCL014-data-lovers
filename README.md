@@ -133,6 +133,25 @@ y de equipo.
 - [ ] Utilizar identificadores descriptivos (Nomenclatura | Semántica).
 - [ ] Utilizar linter para seguir buenas prácticas (ESLINT).
 
+### Soft skills
+- [ ] **Planificación, organización y manejo del tiempo** Organizarse utilizando historias de usuario, haciendo una estimación general de los tiempos que se necesitarán para la realización del proyecto. Conocer las ceremonias y artefactos ágiles (sprint planning, dailys, retrospectiva, tablero al menos, etc) a pesar de que no se utilicen con regularidad.
+
+- [ ] **Trabajo en equipo** Trabajar con otros de forma colaborativa y en base a un objetivo común, entregando ideas para la construcción del proyecto
+
+- [ ] **Autoaprendizaje** Demostrar interés y adquirir nuevos conocimientos autónomamente, estudiando de manera independiente, lo que se traduce, en que cuando es necesario, la estudiante buscará aclarar conceptos y resolver dudas sobre la materia.
+
+- [ ] **Presentaciones** Utilizar ciertas estrategias para hablar en público (tono y ritmo de voz adecuado, contacto visual con el público, interacción con medios de presentación), que permitan asegurar un mediano entendimiento de la audiencia.
+
+- [ ] **Adaptabilidad** Afrontar los cambios inesperados o nuevos desafíos con una actitud positiva, aunque no necesariamente se logre accionar o adaptarse de la mejor manera a los diferentes contextos.
+
+- [ ] **Solución de problemas** Trabajar en la búsqueda y en la elaboración de soluciones alternativas a problemas de mediana complejidad.
+
+- [ ] **Responsabilidad** Demostrar actitud de compromiso, reflejandolo en la entrega de trabajo a tiempo, llegando a la hora acordada y/o avisando cuando no se pueda asistir.
+
+- [ ] **Dar y recibir feedback** Escuchar los comentarios y críticas de los demás de manera respetuosa, y/o comunicar a los demás las opiniones de forma constructiva.
+
+- [ ] **Comunicación eficaz** Comunicar ideas a los demás cuando es necesario, aunque no siempre se fomenten de manera proactiva estas instancias de comunicación.
+
 ## 4. Consideraciones generales
 
 * Este proyecto se debe resolver en duplas.
@@ -234,6 +253,11 @@ Features/características extra sugeridas:
   consumir la data de forma dinámica, cargando un archivo JSON por medio de
   `fetch`. La carpeta `src/data` contiene una versión `.js` y una `.json` de
   de cada set datos.
+
+* `computeStats(data)`: crear la función `compute` o calcular, que nos permitirá hacer
+    cálculos estadísticos básicos para ser mostrados de acuerdo a la data
+    proporcionada.
+
 * Agregarle a tu interfaz de usuario implementada visualizaciones gráficas. Para
   ello te recomendamos explorar librerías de gráficas como
   [Chart.js](https://www.chartjs.org/)
@@ -331,6 +355,7 @@ a obtener, procesar y manipular datos (tus funciones). Por ejemplo:
 * `filterData(data, condition)`: esta función `filter` o filtrar recibiría la
   data, y nos retornaría aquellos datos que sí cumplan con la condición.
 
+
 * `sortData(data, sortBy, sortOrder)`: esta función `sort` u ordenar
   recibe tres parámetros.
   El primer parámetro, `data`, nos entrega los datos.
@@ -339,9 +364,8 @@ a obtener, procesar y manipular datos (tus funciones). Por ejemplo:
   El tercer parámetro, `sortOrder`, indica si se quiere ordenar de manera
   ascendente o descendente.
 
-* `computeStats(data)`: la función `compute` o calcular, nos permitirá hacer
-  cálculos estadísticos básicos para ser mostrados de acuerdo a la data
-  proporcionada.
+* Y así sucesivamente, según tu proyecto en particular.
+
 
 Estos nombres de funciones y de parámetros son solamente referenciales, lo que
 decidas depende de tu propia implementación.
@@ -404,70 +428,22 @@ Cuando ya estés lista para codear, te sugerimos empezar de esta manera:
   `http://localhost:5000` en tu navegador.
 6. A codear se ha dicho! :rocket:
 
-<!--
-En este proyecto deberás trabajar colaborativamente. Para ello, una de las
-integrantes del equipo deberá forkear el repositorio del cohort y la otra
-integrante **deberá hacer un fork del repositorio de su compañera**. Luego de
-esto, deberás
-[configurar](https://help.github.com/articles/configuring-a-remote-for-a-fork/)
-un `remote` hacia el repositorio del cual hiciste el fork.
-
-Para mandar cambios desde un repositorio forkeado al original debes crear un
-[pull request](https://goo.gl/4bYnuh)
-y el propietario del repositorio original recibirá una notificación para
-[revisar el pull request](https://goo.gl/XSFcT5)
-y [aceptar los cambios](https://goo.gl/HLJtqN).
-
-Aquí algunas recomendaciones para que organices mejor el trabajo con tu
-compañera:
-
-* En lugar de trabajar en una sola rama o _branch_, puedes organizar el flujo de
-  trabajo con dos ramas principales:
-  - `master`: rama que contiene las funcionalidades terminadas y sin errores.
-  - `develop`: rama dónde integrarás las funcionalidades conforme las vayas
-    desarrollando.
-
-* Además de tener las dos ramas anteriores, puedes trabajar cada nueva
-  funcionalidad en una rama individual (_feature branches_), estas ramas en
-  lugar de crearse a partir de `master`, tienen a `develop` como su rama de
-  origen. Cuando una funcionalidad es terminada se integra de nuevo a `develop`.
-  Las _feature branches_ no se deben integrar directamente a `master`.
-
-* Por último, te sugerimos codear usando la técnica de
-  [pair programming](https://goo.gl/uAMBX2).
-
-¿Quieres saber más forks y pull requests?
-
-* Un [fork](https://help.github.com/articles/fork-a-repo/) es una copia de un
-  repositorio en el que puedes experimentar sin afectar al repositorio original.
-  Generalmente se usa para proponer cambios al proyecto de alguien más o para
-  usar el proyecto de otra persona como punto de partida para una idea que
-  quieras realizar.
-
-* Un [pull request](https://help.github.com/articles/about-pull-requests/) (PR)
-  te permite solicitar la inclusión de cambios al repositorio original (tu punto
-  de partida) en GitHub. Cuando un PR es abierto, este permite solicitar,
-  discutir y revisar los cambios realizados con todos los colaboradores y
-  agregar otros commits antes de que los cambios sean incluidos al repositorio
-  original.
--->
-
 ***
 
 ### Contenido de referencia
 
 #### Diseño de experiencia de usuario (User Experience Design)
 
-* Investigación con usuarios / entrevistas
-* Principios de diseño visual
+* [Investigación con usuarios / entrevistas](https://lms.laboratoria.la/cohorts/scl-2020-05-bc-core-scl014/courses/intro-ux/01-el-proceso-de-diseno/00-el-proceso-de-diseno)
+* [Principios de diseño visual](https://lms.laboratoria.la/cohorts/scl-2020-05-bc-core-scl014/courses/diseno-visual)
 
 #### Desarrollo Front-end
 
-* Unidad de testing en curso de JavaScript en LMS.
-* Unidad de arreglos en curso de JavaScript en LMS.
-* Unidad de objetos en curso de JavaScript en LMS.
-* Unidad de funciones en curso de JavaScript en LMS.
-* Unidad de DOM en curso de Browser JavaScript en LMS.
+* [Unidad de testing en curso de JavaScript en LMS.](https://lms.laboratoria.la/cohorts/scl-2020-05-bc-core-scl014/courses/javascript/11-testing/00-opening)
+* [Unidad de arreglos en curso de JavaScript en LMS.](https://lms.laboratoria.la/cohorts/scl-2020-05-bc-core-scl014/courses/javascript/04-arrays/01-arrays)
+* [Unidad de objetos en curso de JavaScript en LMS.](https://lms.laboratoria.la/cohorts/scl-2020-05-bc-core-scl014/courses/javascript/05-objects/01-objects)
+* [Unidad de funciones en curso de JavaScript en LMS.](https://lms.laboratoria.la/cohorts/scl-2020-05-bc-core-scl014/courses/javascript/03-functions/00-opening)
+* [Unidad de DOM en curso de Browser JavaScript en LMS.](https://lms.laboratoria.la/cohorts/scl-2020-05-bc-core-scl014/courses/browser/02-dom/00-opening)
 * [Array en MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array)
 * [Array.sort en MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/sort)
 * [Array.map en MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/map)
@@ -499,27 +475,3 @@ compañera:
   Aceptación_ y nosotros sí lo haremos. Más detalles en la guía.
 * [Cómo dividir H.U.](https://www.youtube.com/watch?v=Ueq786iZ30I&t=341s)
 * [Guía para Data Lovers](https://docs.google.com/presentation/d/e/2PACX-1vQhx9D36NjpH-Daea-ITPUDUzNL8ZiNAprq_7b5PSUrfutk45tEtaOLz2lmd8f54_5jX1hypDM8f8SM/pub?start=false&loop=false&delayms=60000)
-
-***
-
-## 9. Checklist
-
-* [ ] Usa VanillaJS.
-* [ ] No hace uso de `this`.
-* [ ] Pasa linter (`npm run pretest`)
-* [ ] Pasa tests (`npm test`)
-* [ ] Pruebas unitarias cubren un mínimo del 70% de statements, functions y
-  lines y branches.
-* [ ] Incluye _Definición del producto_ clara e informativa en `README.md`.
-* [ ] Incluye historias de usuario en `README.md`.
-* [ ] Incluye _sketch_ de la solución (prototipo de baja fidelidad) en
-  `README.md`.
-* [ ] Incluye _Diseño de la Interfaz de Usuario_ (prototipo de alta fidelidad)
-  en `README.md`.
-* [ ] Incluye link a Zeplin en `README.md`.
-* [ ] Incluye el listado de problemas que detectaste a través de tests de
-  usabilidad en el `README.md`.
-* [ ] UI: Muestra lista y/o tabla con datos y/o indicadores.
-* [ ] UI: Permite ordenar data por uno o más campos (asc y desc).
-* [ ] UI: Permite filtrar data en base a una condición.
-* [ ] UI: Es _responsive_.
