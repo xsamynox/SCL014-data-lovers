@@ -4,9 +4,79 @@
     <meta charset="utf-8">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, user-scalable=no">
   </head>
   <body>
-    <div id="root"></div>
+    <!--Header-->
+    <header>
+      <img class="banner" src="./imagen/banner-sky2-02.png" alt="banner-sky">
+      <img class="banner-tittle" src="./imagen/pokemon-logo.png" alt="logo">
+    </header> 
+    <!--Pantalla de Inicio-->
+    <section class="background not-visible">
+        <section>
+          <img src="./imagen/img-centro.png"  alt="" class="img-centro">
+        </section>
+        <section class="btn-top">
+        <button> 
+          <img src="./imagen/btn-ubi.png" alt="">
+        </button>
+        <button> 
+          <img src="./imagen/btn-pokeball.png" alt="">
+        </button>
+        </section>
+      <section class="btn-top">
+        <button> 
+          <img src="./imagen/btn-pok.png" alt="">
+        </button>
+        <button>Ir al juego</button>
+        <button> 
+          <img src="./imagen/btn-egg.png" alt="">
+        </button>
+        </section>
+    </section>
+    <!--Pantalla Pokédex-->
+    <main>
+      <section class="menu">
+          <select name="a-z" id="">
+            <option value="">A-Z</option>
+          </select>
+          <select name="type" id="">
+            <option value="">-Tipo-</option>
+          </select>
+          <input value="Ingrese tu Pokémon " autocomplete="off">
+      </section>
+      <div id="pokemon-container">
+      </div>
+    </main>
+    <aside>
+        <button class="not-visible"> 
+        <img class="btn" src="./imagen/btn-juego.png" alt="">
+        </button>
+        <p class="not-visible">Ir al juego</p>
+        <button> 
+          <img class="btn" src="./imagen/btn-pok2.png" alt="">
+        </button>
+        <p>Pokédex</p>
+        <button> 
+          <img class="btn" src="./imagen/btn-ubi2.png" alt="">
+        </button>
+        <p>Nidos</p>
+        <button> 
+          <img class="btn" src="./imagen/btn-pokeball2.png" alt="">
+        </button>    
+        <p>Evolución</p>         
+        <button> 
+          <img class="btn" src="./imagen/btn-egg2.png" alt="">
+        </button>
+        <p>Glosario</p>
+    </aside>
+
+    <footer>
+      <p>©2020 Niantic, Inc. ©2020 Pokémon. ©1995-2020 Nintendo / Creatures Inc. / GAME FREAK inc.
+        Pokémon and Pokémon character names are trademarks of Nintendo. During gameplay, please be aware of your surroundings and play safely.</p>
+    </footer>
+
     <script src="main.js" type="module"></script>
   </body>
 </html>
