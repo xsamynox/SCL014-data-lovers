@@ -10,10 +10,7 @@
   </head>
   <body>
     <!--Header-->
-    <header>
-      <img class="banner" src="./imagen/banner-sky2-02.png" alt="banner-sky">
-      <img class="banner-tittle" src="./imagen/pokemon-logo.png" alt="logo">
-    </header> 
+    
     <!--Pantalla de Inicio-->
     <section class="background not-visible">
         <section>
@@ -40,18 +37,23 @@
     <!--Pantalla Pokédex-->
     <main>
       <section class="menu">
-          <select name="a-z" id="">
+          <button class="tag2" id= "openPage" onclick='open()'>☰</button>             
+          <select class="tag" name="a-z" id="">
             <option value="">A-Z</option>
           </select>
-          <select name="type" id="">
+          <select class="tag" name="type" id="">
             <option value="">-Tipo-</option>
           </select>
-          <input value="Ingrese tu Pokémon " autocomplete="off">
+          <input class="tag" value="Ingrese tu Pokémon" autocomplete="off">
       </section>
+      <section class="container">
       <div id="pokemon-container">
       </div>
+      </section>
     </main>
-    <aside>
+    <aside class="not-visible" id="aside">
+        <button class="tag2" id="closePage" onclick='close()'>X</button>
+        <br>
         <button class="not-visible"> 
         <img class="btn" src="./imagen/btn-juego.png" alt="">
         </button>

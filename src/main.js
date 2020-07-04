@@ -3,6 +3,14 @@ import { example } from './data.js';
 // import data from './data/lol/lol.js';
 import data from './data/pokemon/pokemon.js';
 
+document.getElementById("openPage").onclick = function() {open()};
+document.getElementById("closePage").onclick = function() {close()};
+
+const open = () => document.getElementById("aside").classList.add("visible");
+
+const close = () => document.getElementById("aside").classList.remove("visible");
+ 
+
 const crearPlantillaPokemon = (name,image,num) => `
         <section class="name-pokemon">
             <section class="img-pokemon">
