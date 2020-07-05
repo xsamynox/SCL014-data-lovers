@@ -2,6 +2,20 @@ import { filtrarPorNombre } from './data.js';
 
 import data from './data/pokemon/pokemon.js';
 
+
+const irPokedex = () => {
+  document.getElementById('screen-welcome').style.display = 'none';
+  const body = document.getElementsByTagName('body')[0];
+  body.style.backgroundImage = 'url(./imagen/banner-sky2-01a.png)';
+  const main = document.getElementsByTagName('main')[0];
+  const aside= document.getElementsByTagName('aside')[0];
+  main.style.display = 'block';
+  aside.style.display = 'flex';
+}
+
+document.getElementById('pokedex-welcome').addEventListener('click', () => irPokedex());
+
+
 const open = () => document.getElementById('aside').classList.add('visible');
 
 const close = () => document.getElementById('aside').classList.remove('visible');

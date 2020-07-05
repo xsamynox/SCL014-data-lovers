@@ -9,30 +9,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
   </head>
   <body>
-    <!--Header-->
-    
     <!--Pantalla de Inicio-->
-    <section class="background not-visible">
-        <section>
-          <img src="./imagen/img-centro.png"  alt="" class="img-centro">
-        </section>
-        <section class="btn-top">
-        <button> 
-          <img src="./imagen/btn-ubi.png" alt="">
-        </button>
-        <button> 
-          <img src="./imagen/btn-pokeball.png" alt="">
-        </button>
-        </section>
-      <section class="btn-top">
-        <button> 
-          <img src="./imagen/btn-pok.png" alt="">
-        </button>
-        <button>Ir al juego</button>
-        <button> 
-          <img src="./imagen/btn-egg.png" alt="">
-        </button>
-        </section>
+    <section id="screen-welcome" class="not-visible welcome">
+        <section class="btn-welcome">
+          <button>
+            <img class="imagen-btn1" src="./imagen/btn-volver-jgo.png" alt="">
+            <p>Ir al juego</p>
+          </button>       
+        </section>     
+        <section class="bajar">
+          <section class="btn-welcome1">
+            <button> 
+              <img class="imagen-btn" src="./imagen/btn-ubi2.png" alt="">
+              <p>Nidos</p>
+            </button>
+            <button> 
+              <img class="imagen-btn" src="./imagen/btn-pokeball2.png" alt="">
+              <p>Evolución</p> 
+            </button>    
+          </section>
+          <section class="btn-welcome2">
+            <button id="pokedex-welcome"> 
+              <img class="imagen-btn" src="./imagen/btn-pok2.png" alt="">
+              <p>Pokédex</p>  
+            </button> 
+            <button> 
+              <img class="imagen-btn" src="./imagen/btn-egg2.png" alt="">
+              <p>Glosario</p>
+            </button>
+          </section>
+        </section>        
     </section>
     <!--Pantalla Pokédex-->
     <main>
@@ -55,26 +61,26 @@
         <section>
         <button class="tag2" id="closePage">X</button>
         </section>
-        <button class="not-visible"> 
-        <img class="btn" src="./imagen/btn-juego.png" alt="">
+        <button class="btn-aside"> 
+        <img class="imagen-btn-aside" src="./imagen/btn-pok2.png" alt="">
+        <p> Pokédex</p>
         </button>
-        <p class="not-visible">Ir al juego</p>
-        <button> 
-          <img class="btn" src="./imagen/btn-pok2.png" alt="">
+        <button class="btn-aside"> 
+          <img class="imagen-btn-aside" src="./imagen/btn-ubi2.png" alt="">
+          <p>Nidos</p>
         </button>
-        <p>Pokédex</p>
-        <button> 
-          <img class="btn" src="./imagen/btn-ubi2.png" alt="">
+        <button id="game" class="not-visible">
+          <img class="imagen-btn1" src="./imagen/btn-volver-jgo.png" alt="">
+          <p>Ir al juego</p> 
         </button>
-        <p>Nidos</p>
-        <button> 
-          <img class="btn" src="./imagen/btn-pokeball2.png" alt="">
-        </button>    
-        <p>Evolución</p>         
-        <button> 
-          <img class="btn" src="./imagen/btn-egg2.png" alt="">
+        <button class="btn-aside"> 
+          <img class="imagen-btn-aside" src="./imagen/btn-pokeball2.png" alt="">
+          <p>Evolución</p>  
+        </button>           
+        <button class="btn-aside"> 
+          <img class="imagen-btn-aside" src="./imagen/btn-egg2.png" alt="">
+          <p>Glosario</p>
         </button>
-        <p>Glosario</p>
     </aside>
 
     <footer>

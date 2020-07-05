@@ -5,8 +5,8 @@ small-tablet-portrait: min:600px - max:799px;
 small-tablet-landscape: min:800px - max:767px;
 tablet-portrait: min:768px - max:1023px; 
 */
-/*font-family: 'Allerta Stencil', sans-serif; titulos pstyle pokemon*/
-/*font-family: 'Source Sans Pro', sans-serif; italic, regular y bold*/
+/*font-family: 'Allerta Stencil', sans-serif; titulos pstyle pokemon */
+/*font-family: 'Source Sans Pro', sans-serif; italic, regular y bold */
 
 body {
     background-image: url("./imagen/banner-sky2-02.png");
@@ -20,9 +20,8 @@ body {
 }
 .visible {
     display: block;
-    position: fixed;
 }
-.img-centro{
+/*.img-centro{
    display: block;
    margin: auto;
    width: 50%;
@@ -32,21 +31,39 @@ body {
    display: flex;
    justify-content: center;   
 }
+*/
 button{
     border-radius: 60%;
     border-color: transparent;
     background-color: transparent;
     margin: 0%;
+    text-align: center;
+    color: #ffff;
+    font-family: 'Allerta Stencil';
+    font-size: 0.8em;
+    line-height: 0px;
 }
-.btn{
+.btn-aside {
+    border-radius: 60%;
+    border-color: transparent;
+    background-color: transparent;
+    margin: 0%;
+    text-align: center;
+    color: #ffff;
+    font-family: 'Allerta Stencil';
+    font-size: 0.8em;
+    line-height: 0px;
+}
+.imagen-btn-aside{
     width: 74px;
     height: 74px;
 }
-.btn:hover{
+.imagen-btn-aside:hover{
     width: 80px;
     height: 80px;
 }
 aside {
+    position: fixed;
     margin-top: 8.5%;
     width: 150px;
     height: 78%;
@@ -151,16 +168,147 @@ footer {
     font-weight: 300;
     font-size: 0.7em;
 }
-
 /* Smartphone */
-@media screen and (max-width: 479px) and (min-width: 320px) {
-    .not-visible{
+@media screen and (max-width: 736px) and (min-width: 320px) {
+    /* Ocultando main, aside y footer en la pantalla principal. */
+    main{ 
+        display: none;
+    }
+    aside{
+       display: none;
+   }
+    footer{
+       display: none;
+   }
+   .welcome {
     display: block;
-    background-image: url("./imagen/background-13.png");
-    width: 100%;
-    height: 700px;
+    }
+    #game{
+        display: block;
+        text-align: center;
+    }
+    #openPage{
+        display: none;
+    }
+    #closePage{
+        display: none;
+    }
+   body{
+        background-image: url("./imagen/banner-sky2-01.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    .btn-aside {
+        text-align: center;
+        color: #ffff;
+        font-family: 'Allerta Stencil';
+        font-size: 0.6em;
+        line-height: 0px;
+    }
+    .imagen-btn{
+        width: 74px;
+        height: 74px;
+    }
+    .imagen-btn:hover{
+        width: 80px;
+        height: 80px;
+    }
+    .imagen-btn-aside{
+        width: 40px;
+        height: 40px;
+    }
+    .imagen-btn-asise:hover{
+        width: 45px;
+        height: 45px;
+    }
+    .imagen-btn1{
+        width: 40px;
+        height: 40px;
+    }
+    .imagen-btn1:hover{
+        width: 55px;
+        height: 55px;
+    }
+    .btn-welcome {
+        margin-top: 5%;
+        display: flex;
+        justify-content: center;      
+    } 
+    .bajar {
+        position: absolute;
+        width: 100%;
+        bottom: 0; 
+    }
+    .btn-welcome1 {
+        display: flex;
+        justify-content: center;
+    }
+    .btn-welcome2 {
+        display: flex;
+        justify-content: space-between;
+    }
+    aside {
+        position: absolute;
+        bottom: 0; 
+        line-height: 0px;
+        width: 100%;
+        height: 10%;
+    }
+    .menu{
+        margin-top: 100px;
+        /*position: fixed;*/
+        display: inline-block;
+        width: 100%;
+        height: 40px;
+        background-color: rgba(73,2,2,0.50);    
+        text-align: center;
+    }
+    .tag{
+        color: #ffff;
+        font-family: 'Allerta Stencil';
+        font-size: 1em;
+        text-align: center;
+        height: 50px;
+    }
+    .tag:hover{
+        color: rgb(73,2,2);
+        font-family: 'Allerta Stencil';
+        font-size: 1em;
+        background-color: rgba(255,255,255,0.50);
+        height: 40px;
+    }
+    .tag2{
+        color: #ffff;
+        font-family: 'Allerta Stencil';
+        font-size: 1.2em;
+    }
+    button#openPage {
+        float: left;
+        height: 50px;
+    }
+    select{
+        margin-left: 1%;
+        width: 20%;
+        height: 80%;
+        background-color: transparent;    
+        border:transparent;
+    }
+    input {
+        width: 40%;
+        height: 80%;
+        background-color: transparent;
+        border: transparent; 
+    }
+    .container{
+        position: fixed;
+        margin-top: 40%;
+        width: 99%; 
+        height: 60%; 
+        overflow-y: scroll;  
     }
 }
+
 /* Tablet */
 @media screen and (max-width: 799px) and (min-width: 600px) {
     .not-visible{
