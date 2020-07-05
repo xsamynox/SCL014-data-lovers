@@ -1,17 +1,38 @@
-import { example } from './data.js';
-// import data from './data/atletas/atletas.js';
-// import data from './data/lol/lol.js';
+import { filtrarPorNombre } from './data.js';
+
 import data from './data/pokemon/pokemon.js';
 
-document.getElementById("openPage").onclick = function() {open()};
-document.getElementById("closePage").onclick = function() {close()};
+const open = () => document.getElementById('aside').classList.add('visible');
 
-const open = () => document.getElementById("aside").classList.add("visible");
+const close = () => document.getElementById('aside').classList.remove('visible');
 
-const close = () => document.getElementById("aside").classList.remove("visible");
- 
+const obtenerLugarParaImprimir = identificador => document.getElementById(identificador);
 
-const crearPlantillaPokemon = (name,image,num) => `
+const containerPokedex = obtenerLugarParaImprimir('pokemon-container');
+
+const pintarEnPantalla = (pokemones) => {
+    containerPokedex.innerHTML = "";
+    pokemones.forEach((pokemonAtrib) => {
+        const pokemonName = pokemonAtrib.name.charAt(0).toUpperCase() + pokemonAtrib.name.slice(1);
+        const pokemonNum = pokemonAtrib.num;
+        const pokemonImg = pokemonAtrib.img;
+        const pokemon = crearPlantillaPokemon(pokemonName, pokemonImg, pokemonNum);
+        imprimirEnPantalla(pokemon);
+    });
+};
+
+const inputNombrePokemon = document.getElementById('input-name-pokemon');
+inputNombrePokemon.addEventListener('input', () => {
+  const valorAFiltrar = inputNombrePokemon.value;
+  const pokemonesFiltrados = filtrarPorNombre(valorAFiltrar); 
+  pintarEnPantalla(pokemonesFiltrados);
+});
+
+document.getElementById('openPage').addEventListener('click', () => open());
+document.getElementById('closePage').addEventListener('click', () => close());
+
+
+const crearPlantillaPokemon = (name, image, num) => `
         <section class="name-pokemon">
             <section class="img-pokemon">
             <img src="${image}" alt="${name}">
@@ -21,27 +42,9 @@ const crearPlantillaPokemon = (name,image,num) => `
         </section>
     `;
 
-
-const obtenerLugarParaImprimir = (identificador) => document.getElementById(identificador);
-
-const containerPokedex = obtenerLugarParaImprimir("pokemon-container");
-
 const imprimirEnPantalla = (pokemon) => {
-    containerPokedex.insertAdjacentHTML("beforeend", pokemon);
+  containerPokedex.insertAdjacentHTML('beforeend', pokemon);
 };
 
-//recorremos el arreglo de todos los pokemones
-data.pokemon.forEach(pokemonAtrib => {
-    //obtener nombre y pasar la primera letra de name a mayús
-    const pokemonName = pokemonAtrib.name.charAt(0).toUpperCase() + pokemonAtrib.name.slice(1);
-
-    //obtener numero
-    const pokemonNum = pokemonAtrib.num;
-
-    //obtener imagen
-    const pokemonImg = pokemonAtrib.img;
-
-    const pokemon = crearPlantillaPokemon(pokemonName,pokemonImg,pokemonNum);
-
-    imprimirEnPantalla(pokemon);
-});
+// recorremos el arreglo de todos los pokemones
+pintarEnPantalla(data.pokemon); 

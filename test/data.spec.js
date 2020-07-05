@@ -1,6 +1,5 @@
-// import { example, anotherExample } from '../src/data.js';
+import { obtenerTipos, filtrarPorNombre } from '../src/data.js';
 
-import pokemonArray from '../src/data/pokemon/pokemon.js';
 
 describe('example', () => {
   /* it('is a function', () => {
@@ -11,7 +10,6 @@ describe('example', () => {
     expect(example()).toBe('example');
   });
 });
-
 
 describe('anotherExample', () => {
   it('is a function', () => {
@@ -44,22 +42,42 @@ describe('anotherExample', () => {
 
   describe('playing with pokemon', () => {
     it('play with pokemon', () => {
-      //console.log(pokemonArray);
-      /*pokemonArray.pokemon.forEach(pokemonAtrib => {
+      // console.log(pokemonArray);
+      /* pokemonArray.pokemon.forEach(pokemonAtrib => {
         console.log(pokemonAtrib.name);
         console.log(pokemonAtrib.weaknesses);
-      });*/
+      }); */
 
-      //filtar por los que son del tipo poison
-      /*let pokemonPoison = pokemonArray.pokemon.filter(pokemonAtrib => pokemonAtrib.type.includes("poison"));
+      // filtar por los que son del tipo poison
+      /* let pokemonPoison = pokemonArray.pokemon.filter((pokemonAtrib) => {
+        pokemonAtrib.type.includes("poison");
+        });
       console.log(pokemonPoison.length);
       pokemonPoison.forEach(pokemonAtrib =>{
         console.log(pokemonAtrib.name);
         console.log(pokemonAtrib.type);
-      });*/
-
-      
-
+      }); */
     });
+  });
+  describe('buscando tipos de pokemon', () => {
+    it('obtener los tipos de pokemon', () => {     
+      // act      
+      let tiposPokemon = obtenerTipos();
+      // assert
+      expect(tiposPokemon.length).toBe(18);
+    });
+  });
+  describe('filtrar pokemones', () => {
+   it('filtrar por nombres de pokemon', () => {
+    //arrange
+    let valorAfiltrar = "char";
+
+    //act
+    let pokemonesFiltrados = filtrarPorNombre(valorAfiltrar);
+    
+    //assert
+    expect(pokemonesFiltrados.length).toBe(3);
+
+   });
   });
 });

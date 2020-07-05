@@ -12,7 +12,8 @@ body {
     background-image: url("./imagen/banner-sky2-02.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover; 
+    background-size: cover;
+    margin: 0; 
   }
 .not-visible {
     display: none;
@@ -20,17 +21,6 @@ body {
 .visible {
     display: block;
     position: fixed;
-}
-body {
-    margin: 0;
-}
-.banner{
-    width: 100%;
-    height: auto;
-}
-.banner-tittle{
-    width: 300px;
-    height: 110px;
 }
 .img-centro{
    display: block;
@@ -49,19 +39,19 @@ button{
     margin: 0%;
 }
 .btn{
-    width: 84px;
-    height: 84px;
+    width: 74px;
+    height: 74px;
 }
 .btn:hover{
-    width: 55%;
-    height: auto;
+    width: 80px;
+    height: 80px;
 }
 aside {
-    margin-top: 10%;
+    margin-top: 8.5%;
     width: 150px;
-    height: 600px;
+    height: 78%;
     float: left;
-    background-color: rgba(73,2,2,0.80);
+    background-color: rgba(73,2,2,0.50);
     text-align: center;
     color: #ffff;
     font-family: 'Allerta Stencil';
@@ -69,7 +59,7 @@ aside {
     line-height: 0px;
 }
 .menu{
-    margin-top: 140px;
+    margin-top: 120px;
     position: fixed;
     width: 100%;
     height: 50px;
@@ -115,9 +105,9 @@ input {
 }
 .container{
     position: fixed;
-    margin-top: 15%;
+    margin-top: 13%;
     width: 99%; 
-    height: 70%; 
+    height: 65%; 
     overflow-y: scroll;  
 }
 .container::-webkit-scrollbar {
@@ -148,6 +138,18 @@ input {
 }
 section.img-pokemon {
     background: rgba(243, 242, 242, 0.25); 
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(73,2,2,0.50);
+    text-align: center;
+    color: #ffff;
+    font-family: 'Source Sans Pro';
+    font-style: italic;
+    font-weight: 300;
+    font-size: 0.7em;
 }
 
 /* Smartphone */

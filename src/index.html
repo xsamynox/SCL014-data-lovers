@@ -37,14 +37,14 @@
     <!--Pantalla Pokédex-->
     <main>
       <section class="menu">
-          <button class="tag2" id= "openPage" onclick='open()'>☰</button>             
+          <button class="tag2" id= "openPage">☰</button>             
           <select class="tag" name="a-z" id="">
             <option value="">A-Z</option>
           </select>
           <select class="tag" name="type" id="">
             <option value="">-Tipo-</option>
           </select>
-          <input class="tag" value="Ingrese tu Pokémon" autocomplete="off">
+          <input id="input-name-pokemon" class="tag" placeholder="Ingrese tu Pokémon" value="" autocomplete="off">
       </section>
       <section class="container">
       <div id="pokemon-container">
@@ -52,8 +52,9 @@
       </section>
     </main>
     <aside class="not-visible" id="aside">
-        <button class="tag2" id="closePage" onclick='close()'>X</button>
-        <br>
+        <section>
+        <button class="tag2" id="closePage">X</button>
+        </section>
         <button class="not-visible"> 
         <img class="btn" src="./imagen/btn-juego.png" alt="">
         </button>
@@ -77,8 +78,7 @@
     </aside>
 
     <footer>
-      <p>©2020 Niantic, Inc. ©2020 Pokémon. ©1995-2020 Nintendo / Creatures Inc. / GAME FREAK inc.
-        Pokémon and Pokémon character names are trademarks of Nintendo. During gameplay, please be aware of your surroundings and play safely.</p>
+      <p>©2020 Niantic, Inc. ©2020 Pokémon. ©1995-2020 Nintendo / Creatures Inc. / GAME FREAK inc. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
     </footer>
 
     <script src="main.js" type="module"></script>
