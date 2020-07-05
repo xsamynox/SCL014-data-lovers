@@ -9,6 +9,6 @@ export const obtenerTipos = () => {
 };
 
 export const filtrarPorNombre = (valorAFiltrar) => {    
-    let filtroNombre = data.pokemon.filter(pokemonAtrib => pokemonAtrib.name.includes(valorAFiltrar));
+    let filtroNombre = data.pokemon.filter(pokemonAtrib => pokemonAtrib.name.includes(valorAFiltrar) || pokemonAtrib.num.includes(valorAFiltrar));
     return filtroNombre;
 };

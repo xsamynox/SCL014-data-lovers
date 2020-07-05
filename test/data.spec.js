@@ -79,5 +79,16 @@ describe('anotherExample', () => {
     expect(pokemonesFiltrados.length).toBe(3);
 
    });
+   it('filtrar por numeros de pokemon', () => {
+    //arrange
+    let valorAfiltrar = "001";
+
+    //act
+    let pokemonesFiltrados = filtrarPorNombre(valorAfiltrar);
+    
+    //assert
+    expect(pokemonesFiltrados.length).toBe(1);
+    expect(pokemonesFiltrados[0].name).toBe("bulbasaur");
+   });
   });
-});
+}); 
