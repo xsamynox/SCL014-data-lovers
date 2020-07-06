@@ -60,35 +60,30 @@ describe('anotherExample', () => {
     });
   });
   describe('buscando tipos de pokemon', () => {
-    it('obtener los tipos de pokemon', () => {     
-      // act      
-      let tiposPokemon = obtenerTipos();
+    it('obtener los tipos de pokemon', () => {
+      // act
+      const tiposPokemon = obtenerTipos();
       // assert
       expect(tiposPokemon.length).toBe(18);
     });
   });
   describe('filtrar pokemones', () => {
-   it('filtrar por nombres de pokemon', () => {
-    //arrange
-    let valorAfiltrar = "char";
-
-    //act
-    let pokemonesFiltrados = filtrarPorNombre(valorAfiltrar);
-    
-    //assert
-    expect(pokemonesFiltrados.length).toBe(3);
-
-   });
-   it('filtrar por numeros de pokemon', () => {
-    //arrange
-    let valorAfiltrar = "001";
-
-    //act
-    let pokemonesFiltrados = filtrarPorNombre(valorAfiltrar);
-    
-    //assert
-    expect(pokemonesFiltrados.length).toBe(1);
-    expect(pokemonesFiltrados[0].name).toBe("bulbasaur");
-   });
+    it('filtrar por nombres de pokemon', () => {
+      // arrange
+      const valorAfiltrar = 'char';
+      // act
+      const pokemonesFiltrados = filtrarPorNombre(valorAfiltrar);
+      // assert
+      expect(pokemonesFiltrados.length).toBe(3);
+    });
+    it('filtrar por numeros de pokemon', () => {
+      // arrange
+      const valorAfiltrar = '001';
+      // act
+      const pokemonesFiltrados = filtrarPorNombre(valorAfiltrar);
+      // assert
+      expect(pokemonesFiltrados.length).toBe(1);
+      expect(pokemonesFiltrados[0].name).toBe('bulbasaur');
+    });
   });
-}); 
+});
