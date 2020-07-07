@@ -33,7 +33,7 @@ body {
 }
 */
 button{
-    border-radius: 60%;
+    /* border-radius: 60%; */
     border-color: transparent;
     background-color: transparent;
     margin: 0%;
@@ -44,7 +44,7 @@ button{
     line-height: 0px;
 }
 .btn-aside {
-    border-radius: 60%;
+    /* border-radius: 60%; */
     border-color: transparent;
     background-color: transparent;
     margin: 0%;
@@ -52,13 +52,15 @@ button{
     color: #ffff;
     font-family: 'Allerta Stencil';
     font-size: 0.8em;
-    line-height: 0px;   
+    line-height: 0px;  
+    margin-left: 0%; 
+    margin-top: 20%;
 }
-.imagen-btn-aside{
+.image-btn-aside{
     width: 74px;
     height: 74px;
 }
-.imagen-btn-aside:hover{
+.image-btn-aside:hover{
     width: 80px;
     height: 80px;
 }
@@ -115,7 +117,7 @@ select{
 }
 input {
     width: 20%;
-    height: 63%;
+    height: 63%;    
     background-color: transparent;
     border: transparent; 
 
@@ -168,6 +170,11 @@ footer {
     font-weight: 300;
     font-size: 0.7em;
 }
+#iconSearch{
+    width: auto;
+    height: 20px;
+    margin-left: 1px;
+}
 /* Smartphone */
 @media screen and (max-width: 736px) and (min-width: 320px) {
     /* Ocultando main, aside y footer en la pantalla principal. */
@@ -183,58 +190,61 @@ footer {
    .welcome {
     display: block;
     }
-    #game{
-        display: block;
-        text-align: center;
-    }
+    /* Ocultando botón de abrir y cerrar menu desplegable */
     #openPage{
         display: none;
     }
     #closePage{
         display: none;
     }
-   body{
+    body{
         background-image: url("./imagen/banner-sky2-01.png");
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
     }
-    .imagen-btn{
+    .image-btn{
         width: 74px;
         height: 74px;
     }
-    /*tamano boton*/
+    .image-btn:hover{
+        width: 80px;
+        height: 80px;
+    }
+    /* tamaño boton */
     .btn-aside {
         font-size: 0.6em;
         width: 60px;
         height: 60px;
+        margin-left: 3%;
+        margin-top: 0%;
     }
-    .imagen-btn-aside{
+    /* Tamaño de la imagen del botón */
+    .image-btn-aside{
         width: 40px;
         height: 40px;
     }
-     .imagen-btn-asise:hover{
-        width: 45px;
-        height: 45px;
-    }
-    .imagen-btn1{
+    /* Sin hover en el telefono */
+    .image-btn-aside:hover{
         width: 40px;
         height: 40px;
     }
-    /* .imagen-btn1:hover{
-        width: 55px;
-        height: 55px;
-    } */
+    /* Boton volver al juego */
+    .image-btn1{
+        width: 40px;
+        height: 40px;
+    }
+    #game{
+        display: block;
+        text-align: center;
+        font-size: 0.6em;
+    }
+    /* Boton volver al juego inicio y selecciones */
     .btn-welcome {
         margin-top: 5%;
         display: flex;
         justify-content: center;      
     } 
-    .bajar {
-        position: absolute;
-        width: 100%;
-        bottom: 0; 
-    }
     .btn-welcome1 {
         display: flex;
         justify-content: center;
@@ -242,6 +252,12 @@ footer {
     .btn-welcome2 {
         display: flex;
         justify-content: space-between;
+    }
+     /* Llevar los botones de inicio abajo */ 
+    .position-btn {
+        position: absolute;
+        width: 100%;
+        bottom: 0; 
     }
     aside {
         position: absolute;
@@ -297,20 +313,117 @@ footer {
     }
     .container{
         position: fixed;
-        margin-top: 40%;
+        margin-top: 45%;
         width: 99%; 
         height: 60%; 
         overflow-y: scroll;  
+    }
+    #iconSearch{
+        width: auto;
+        height: 15px;
+        margin-left: 1px;    
     }
 }
 
 /* Tablet */
 @media screen and (max-width: 799px) and (min-width: 600px) {
-    .not-visible{
-    display: block;
+    body{
     background-image: url("./imagen/banner-sky2-03.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    }
+    /* Ocultando main, aside y footer en la pantalla principal. */
+    main{ 
+        display: none;
+    }
+    aside{
+       display: none;
+   }
+    footer{
+       display: none;
+   }
+   .welcome {
+    display: block;
+    }
+    /* Ocultando botón de abrir y cerrar menu desplegable */
+    #openPage{
+        display: none;
+    }
+    #closePage{
+        display: none;
+    }
+    .image-btn{
+        width: 120px;
+        height: 120px;
+    }
+    /* Boton volver al juego */
+    .image-btn1{
+        width: 80px;
+        height: 80px;
+    }
+    #game{
+        display: block;
+        text-align: center;
+        font-size: 1em;
+        margin-left: 6%;
+    }
+    /* Boton volver al juego inicio y selecciones */
+    button{
+        /* border-radius: 60%; */
+        font-size: 1.1em;
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+    .btn-welcome {
+        margin-top: 5%;
+        display: flex;
+        justify-content: center;      
+    } 
+    .btn-welcome1 {
+        display: flex;
+        justify-content: center;
+    }
+    .btn-welcome2 {
+        display: flex;
+        justify-content: space-between;
+    }
+    /* Llevar los botones de inicio abajo */ 
+    .position-btn {
+        position: absolute;
+        width: 100%;
+        bottom: 0; 
+    }
+    aside {
+        position: absolute;
+        bottom: 0; 
+        line-height: 0px;
+        width: 100%;
+        height: 11%;
+    }
+    /* tamaño boton */
+    .btn-aside {
+        font-size: 1em;
+        width: 100px;
+        height: 100px;
+        margin-left: 6%;
+        margin-top: 0%;
+    }
+    /* Tamaño de la imagen del botón */
+    .image-btn-aside{
+        width: 80px;
+        height: 80px;
+    }
+    /* Sin hover en el telefono */
+    .image-btn-aside:hover{
+        width: 80px;
+        height: 80px;
+    }
+    .container{
+        position: fixed;
+        margin-top: 25%;
+        width: 100%; 
+        height: 68%; 
+        overflow-y: scroll;  
     }
 }

@@ -2,24 +2,39 @@ import { filtrarPorNombre } from './data.js';
 
 import data from './data/pokemon/pokemon.js';
 
+// Mostrando y ocultando el menu desplegable.
 const open = () => document.getElementById('aside').classList.add('visible');
-
 const close = () => document.getElementById('aside').classList.remove('visible');
 
-const obtenerLugarParaImprimir = identificador => document.getElementById(identificador);
+document.getElementById('openPage').addEventListener('click', () => open());
+document.getElementById('closePage').addEventListener('click', () => close());
 
+const obtenerLugarParaImprimir = identificador => document.getElementById(identificador);
 const containerPokedex = obtenerLugarParaImprimir('pokemon-container');
 
+// Agregando style desde el JS
 const irPokedex = () => {
-  document.getElementById('screen-welcome').style.display = 'none';
-  const body = document.getElementsByTagName('body')[0];
-  body.style.backgroundImage = 'url(./imagen/banner-sky2-01a.png)';
-  const main = document.getElementsByTagName('main')[0];
-  const aside = document.getElementsByTagName('aside')[0];
-  main.style.display = 'block';
-  aside.style.display = 'flex';
+  const myMedia = (x) => {
+    document.getElementById('screen-welcome').style.display = 'none';
+    const main = document.getElementsByTagName('main')[0];
+    const aside = document.getElementsByTagName('aside')[0];
+    main.style.display = 'block';
+    aside.style.display = 'flex';
+    const body = document.getElementsByTagName('body')[0];
+    if (x.matches) { // If media query matches
+      body.style.backgroundImage = 'url(./imagen/banner-sky2-01a.png)';
+    } else {
+      body.style.backgroundImage = 'url(./imagen/banner-sky2-03a.png)';
+    }
+  };
+  const x = window.matchMedia('(max-width: 736px)');
+  myMedia(x); // Call listener function at run time
+  x.addListener(myMedia); // Attach listener function on state changes
 };
+// Al hacer click ir Mostrando y ocultando pantallas en el celular
+document.getElementById('pokedex-welcome').addEventListener('click', () => irPokedex());
 
+// Creando la plantilla donde estaran los Pokemon
 const crearPlantillaPokemon = (name, image, num) => `
         <section class="name-pokemon">
             <section class="img-pokemon">
@@ -34,8 +49,7 @@ const imprimirEnPantalla = (pokemon) => {
   containerPokedex.insertAdjacentHTML('beforeend', pokemon);
 };
 
-document.getElementById('pokedex-welcome').addEventListener('click', () => irPokedex());
-
+// Imprimiendo en pantalla la plantilla
 const pintarEnPantalla = (pokemones) => {
   containerPokedex.innerHTML = '';
   pokemones.forEach((pokemonAtrib) => {
@@ -47,15 +61,13 @@ const pintarEnPantalla = (pokemones) => {
   });
 };
 
+// Pintando en pantalla solo los pokemones filtrados por medio del buscador.
 const inputNombrePokemon = document.getElementById('input-name-pokemon');
 inputNombrePokemon.addEventListener('input', () => {
   const valorAFiltrar = inputNombrePokemon.value;
   const pokemonesFiltrados = filtrarPorNombre(valorAFiltrar);
   pintarEnPantalla(pokemonesFiltrados);
 });
-
-document.getElementById('openPage').addEventListener('click', () => open());
-document.getElementById('closePage').addEventListener('click', () => close());
 
 // recorremos el arreglo de todos los pokemones
 pintarEnPantalla(data.pokemon);
