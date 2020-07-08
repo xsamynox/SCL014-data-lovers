@@ -1,4 +1,6 @@
-import { obtenerTipos, filtrarPorNombre } from '../src/data.js';
+import {
+  obtenerTipos, filtrarPorNombre, filtrarPorTipo, ordenarPokemon,
+} from '../src/data.js';
 
 
 describe('example', () => {
@@ -19,17 +21,12 @@ describe('anotherExample', () => {
   it('returns `anotherExample`', () => {
     expect(anotherExample()).toBe('OMG');
   }); */
-
   /* describe('testing array functions', () => {
     it('will test the function', () => {
-      const arrayOne = [9, 6, 55, 1, 2, 3, 4, 8888];
-
+      const arrayOne = ["Alberto", "Fabian", "Gabriela", "Ana"];
       const filtrados = arrayOne.filter(num => num >= 3);
-
       const multiplicar = arrayOne.map(num => num * 10);
-
       const orderArray = arrayOne.sort((num1, num2) => num2-num);
-
       console.log(orderArray);
 
       console.log(multiplicar);
@@ -65,6 +62,17 @@ describe('anotherExample', () => {
       const tiposPokemon = obtenerTipos();
       // assert
       expect(tiposPokemon.length).toBe(18);
+      // console.log(tiposPokemon);
+    });
+    it('obtener los pokemon pertenecientes a cada tipo', () => {
+      // arrange
+      const tipoSeleccionadoAfiltrar = 'grass';
+      // act
+      const pokemonesFiltradosPorTipo = filtrarPorTipo(tipoSeleccionadoAfiltrar);
+      // assert
+      expect(pokemonesFiltradosPorTipo.length).toBe(24);
+      // console.log(pokemonesFiltradosPorTipo.length);
+      expect(pokemonesFiltradosPorTipo[0].name).toBe('bulbasaur');
     });
   });
   describe('filtrar pokemones', () => {
@@ -84,6 +92,16 @@ describe('anotherExample', () => {
       // assert
       expect(pokemonesFiltrados.length).toBe(1);
       expect(pokemonesFiltrados[0].name).toBe('bulbasaur');
+    });
+  });
+  describe('Ordenar pokemon alfabeticamente', () => {
+    it('ordenar ascendente A-Z', () => {
+      // act --> yo decia que cosa mandi
+      const pokemon = ordenarPokemon();
+      // console.log(pokemon);
+      // assert
+      expect(pokemon[2].name).toBe('aipom');
+      console.log(pokemon[2].name);
     });
   });
 });

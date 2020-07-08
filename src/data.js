@@ -13,3 +13,21 @@ export const filtrarPorNombre = (valorAFiltrar) => {
   || pokemonAtrib.num.includes(valorAFiltrar));
   return filtroNombre;
 };
+
+export const filtrarPorTipo = ((tipo) => {
+  const filtroPorTipo = data.pokemon.filter(element => element.type.includes(tipo));
+  return filtroPorTipo;
+});
+
+export const ordenarPokemon = () => {
+  const datapoke = data.pokemon;
+  const ordenPorNombre = datapoke.sort((a, b) => {
+    if (a.name > b.name) {
+      return 1;
+    } if (a.name < b.name) {
+      return -1;
+    }
+    return 0;
+  });
+  return ordenPorNombre;
+};

@@ -1,38 +1,22 @@
-import { filtrarPorNombre } from './data.js';
-
 import data from './data/pokemon/pokemon.js';
 
-// Mostrando y ocultando el menu desplegable.
-const open = () => document.getElementById('aside').classList.add('visible');
-const close = () => document.getElementById('aside').classList.remove('visible');
+import {
+  filtrarPorNombre, obtenerTipos, filtrarPorTipo, ordenarPokemon,
+} from './data.js';
 
-document.getElementById('openPage').addEventListener('click', () => open());
-document.getElementById('closePage').addEventListener('click', () => close());
+// Mostrando y ocultando el menu desplegable.
+const toggleAside = (boolean) => {
+  if (boolean) {
+    document.getElementById('aside').classList.add('visible');
+  } else {
+    document.getElementById('aside').classList.remove('visible');
+  }
+};
+document.getElementById('openPage').addEventListener('click', () => toggleAside(true));
+document.getElementById('closePage').addEventListener('click', () => toggleAside(false));
 
 const obtenerLugarParaImprimir = identificador => document.getElementById(identificador);
 const containerPokedex = obtenerLugarParaImprimir('pokemon-container');
-
-// Agregando style desde el JS
-const irPokedex = () => {
-  const myMedia = (x) => {
-    document.getElementById('screen-welcome').style.display = 'none';
-    const main = document.getElementsByTagName('main')[0];
-    const aside = document.getElementsByTagName('aside')[0];
-    main.style.display = 'block';
-    aside.style.display = 'flex';
-    const body = document.getElementsByTagName('body')[0];
-    if (x.matches) { // If media query matches
-      body.style.backgroundImage = 'url(./imagen/banner-sky2-01a.png)';
-    } else {
-      body.style.backgroundImage = 'url(./imagen/banner-sky2-03a.png)';
-    }
-  };
-  const x = window.matchMedia('(max-width: 736px)');
-  myMedia(x); // Call listener function at run time
-  x.addListener(myMedia); // Attach listener function on state changes
-};
-// Al hacer click ir Mostrando y ocultando pantallas en el celular
-document.getElementById('pokedex-welcome').addEventListener('click', () => irPokedex());
 
 // Creando la plantilla donde estaran los Pokemon
 const crearPlantillaPokemon = (name, image, num) => `
@@ -60,6 +44,65 @@ const pintarEnPantalla = (pokemones) => {
     imprimirEnPantalla(pokemon);
   });
 };
+
+// Selector de a-z
+const selectorAscedente = obtenerLugarParaImprimir('ascendente');
+
+selectorAscedente.addEventListener('click', () => {
+});
+ordenarPokemon();
+
+// Selector de tipo de pokemon
+const selectorTipoPokemon = obtenerLugarParaImprimir('type-pokemon');
+
+const crearPlantillaPokemonTipo = type => `
+        <select>
+          <option value="${type}">${type}</option>
+        </select>
+    `;
+
+const imprimirEnSelector = (option) => {
+  selectorTipoPokemon.insertAdjacentHTML('beforeend', option);
+};
+
+const pintarEnSelector = (type) => {
+  selectorTipoPokemon.innerHTML = '';
+  type.forEach((tipoPokemones) => {
+    const pokemonType = tipoPokemones;
+    const tipo = crearPlantillaPokemonTipo(pokemonType);
+    imprimirEnSelector(tipo);
+  });
+};
+pintarEnSelector(obtenerTipos());
+// Pintando en pantalla solo los pokemones filtrados por tipo.
+selectorTipoPokemon.addEventListener('click', () => {
+  const tipoAFiltrar = selectorTipoPokemon.value;
+  const pokemonesFiltradosPorTipo = filtrarPorTipo(tipoAFiltrar);
+  pintarEnPantalla(pokemonesFiltradosPorTipo);
+});
+filtrarPorTipo();
+
+// Agregando style desde el JS
+const irPokedex = () => {
+  const myMedia = (x) => {
+    document.getElementById('screen-welcome').style.display = 'none';
+    const main = document.getElementsByTagName('main')[0];
+    const aside = document.getElementsByTagName('aside')[0];
+    main.style.display = 'block';
+    aside.style.display = 'flex';
+    const body = document.getElementsByTagName('body')[0];
+    if (x.matches) { // If media query matches
+      body.style.backgroundImage = 'url(./imagen/banner-sky2-01a.png)';
+    } else {
+      body.style.backgroundImage = 'url(./imagen/banner-sky2-03a.png)';
+    }
+  };
+  const x = window.matchMedia('(max-width: 736px)');
+  myMedia(x); // Call listener function at run time
+  x.addListener(myMedia); // Attach listener function on state changes
+};
+// Al hacer click ir Mostrando y ocultando pantallas en el celular
+document.getElementById('pokedex-welcome').addEventListener('click', () => irPokedex());
 
 // Pintando en pantalla solo los pokemones filtrados por medio del buscador.
 const inputNombrePokemon = document.getElementById('input-name-pokemon');
