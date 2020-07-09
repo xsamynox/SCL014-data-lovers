@@ -1,6 +1,7 @@
-  import {
-  obtenerTipos, filtrarPorNombre, filtrarPorTipo, ordenarPokemon, filtroEnConjunto
-} from '../src/data.js';
+import {
+  obtenerTipos, filtrarPorNombre, filtrarPorTipo, ordenarPokemon, filtroEnConjunto,
+}
+  from '../src/data.js';
 
 import data from '../src/data/pokemon/pokemon.js';
 
@@ -45,17 +46,6 @@ describe('anotherExample', () => {
         console.log(pokemonAtrib.name);
         console.log(pokemonAtrib.weaknesses);
       }); */
-
-      // filtar por los que son del tipo poison
-      /* let pokemonPoison = pokemonArray.pokemon.filter((pokemonAtrib) => {
-        pokemonAtrib.type.includes("poison");
-        });
-      console.log(pokemonPoison.length);
-      pokemonPoison.forEach(pokemonAtrib =>{
-        console.log(pokemonAtrib.name);
-        console.log(pokemonAtrib.type);
-      }); */
-    });
   });
   describe('buscando tipos de pokemon', () => {
     it('obtener los tipos de pokemon', () => {
@@ -77,8 +67,8 @@ describe('anotherExample', () => {
       // console.log(pokemonesFiltradosPorTipo.length);
       expect(pokemonesFiltradosPorTipo[0].name).toBe('bulbasaur');
     });
-    //cambiar nombre
-    it('obtener los pokemon pertenecientes a cada tipo', () => {
+    // cambiar nombre
+    it('obtener todos los pokemon pertenecientes a arreglo', () => {
       // arrange
       const tipoSeleccionadoAfiltrar = 'todos';
       // act
@@ -111,7 +101,7 @@ describe('anotherExample', () => {
   describe('Ordenar pokemon alfabeticamente', () => {
     it('ordenar ascendente A-Z', () => {
       const orden = 'ascendente';
-      // act 
+      // act
       const pokemon = ordenarPokemon(orden, data.pokemon);
       // console.log(pokemon);
       // assert
@@ -120,7 +110,7 @@ describe('anotherExample', () => {
     });
     it('ordenar descendente Z-A', () => {
       const orden = 'descendente';
-      // act 
+      // act
       const pokemon = ordenarPokemon(orden, data.pokemon);
       // console.log(pokemon);
       // assert
@@ -131,27 +121,27 @@ describe('anotherExample', () => {
 
   describe('Va a mostrar los pokemones considerando ordenar, los filtros por tipo, e input ingresados por el usuario', () => {
     it('filtrar en conjunto por tipo, nombre y ordenar alfabeticamente ascendente', () => {
-    // arrange
-    const orden = 'ascendente';
-    const tipoSeleccionado = 'grass';
-    const nombreBuscado = "bell";
-    // act
-    const pokemones = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado);
-    // assert
-    expect(pokemones[0].name).toBe('bellossom');
-    expect(pokemones[1].name).toBe('bellsprout');
+      // arrange
+      const orden = 'ascendente';
+      const tipoSeleccionado = 'grass';
+      const nombreBuscado = 'bell';
+      // act
+      const pokemones = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado);
+      // assert
+      expect(pokemones[0].name).toBe('bellossom');
+      expect(pokemones[1].name).toBe('bellsprout');
     });
 
     it('filtrar en conjunto por tipo, nombre y ordenar alfabeticamente descendente', () => {
       // arrange
       const orden = 'descendente';
       const tipoSeleccionado = 'grass';
-      const nombreBuscado = "bell";
+      const nombreBuscado = 'bell';
       // act
       const pokemones = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado);
       // assert
       expect(pokemones[0].name).toBe('weepinbell');
       expect(pokemones[1].name).toBe('bellsprout');
-      });
+    });
   });
 });

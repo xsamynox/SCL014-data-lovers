@@ -2,7 +2,8 @@ import data from './data/pokemon/pokemon.js';
 
 import {
   obtenerTipos, filtroEnConjunto,
-} from './data.js';
+}
+  from './data.js';
 
 // Mostrando y ocultando el menu desplegable.
 const toggleAside = (boolean) => {
@@ -85,7 +86,7 @@ pintarEnSelector(obtenerTipos());
 selectorTipoPokemon.addEventListener('change', () => {
   const orden = selectorPorOrden.value;
   const tipoSeleccionado = selectorTipoPokemon.value;
-  const nombreBuscado = inputNombrePokemon.value;  
+  const nombreBuscado = inputNombrePokemon.value;
   const pokemonesFiltradosPorTipo = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado);
   pintarEnPantalla(pokemonesFiltradosPorTipo);
 });

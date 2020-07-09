@@ -7,22 +7,24 @@ export const obtenerTipos = () => {
   const tiposUnicos = [...new Set(tipos)];
   return tiposUnicos;
 };
-// pokemones filtrados por tipo y nombre ingresado en simultaneo
+
+// Filtro por tipo y nombre ingresado en simultaneo
 export const filtrarPorNombre = ((valorAFiltrar, pokemones) => {
-  const filtroNombre = pokemones.filter(pokemonAtrib => {
-    return pokemonAtrib.name.includes(valorAFiltrar.toLowerCase()) || pokemonAtrib.num.includes(valorAFiltrar)
-  });
+  const filtroNombre = pokemones.filter(atrib => atrib.name.includes(valorAFiltrar.toLowerCase())
+    || atrib.num.includes(valorAFiltrar));
   return filtroNombre;
 });
 
+// Al seleccionar todos, se muestran todos los tipos de pokemon.
 export const filtrarPorTipo = ((tipo, pokemones) => {
-  if(tipo ==='todos') {
+  if (tipo === 'todos') {
     return pokemones;
-  }  
+  }
   const filtroPorTipo = pokemones.filter(element => element.type.includes(tipo));
   return filtroPorTipo;
 });
 
+// Filtro ordenar AZ-ZA
 export const ordenarPokemon = (orden, pokemones) => {
   const datapoke = pokemones;
   const ordenPorNombre = datapoke.sort((a, b) => {
@@ -39,7 +41,8 @@ export const ordenarPokemon = (orden, pokemones) => {
   return ordenPorNombre;
 };
 
-export const filtroEnConjunto = (orden, tipoSeleccionado, nombreBuscado) => {  
+// Filtrar en conjunto
+export const filtroEnConjunto = (orden, tipoSeleccionado, nombreBuscado) => {
   const pokemonesFiltradoPorTipo = filtrarPorTipo(tipoSeleccionado, data.pokemon);
   const ordenPorNombreTipo = filtrarPorNombre(nombreBuscado, pokemonesFiltradoPorTipo);
   const pokemonesPorNombreTipoOrdenados = ordenarPokemon(orden, ordenPorNombreTipo);
