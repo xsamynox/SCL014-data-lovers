@@ -1,7 +1,8 @@
-import {
-  obtenerTipos, filtrarPorNombre, filtrarPorTipo, ordenarPokemon,
+  import {
+  obtenerTipos, filtrarPorNombre, filtrarPorTipo, ordenarPokemon, filtroEnConjunto
 } from '../src/data.js';
 
+import data from '../src/data/pokemon/pokemon.js';
 
 describe('example', () => {
   /* it('is a function', () => {
@@ -59,7 +60,9 @@ describe('anotherExample', () => {
   describe('buscando tipos de pokemon', () => {
     it('obtener los tipos de pokemon', () => {
       // act
-      const tiposPokemon = obtenerTipos();
+      const tiposPokemon = obtenerTipos(
+
+      );
       // assert
       expect(tiposPokemon.length).toBe(18);
       // console.log(tiposPokemon);
@@ -68,11 +71,21 @@ describe('anotherExample', () => {
       // arrange
       const tipoSeleccionadoAfiltrar = 'grass';
       // act
-      const pokemonesFiltradosPorTipo = filtrarPorTipo(tipoSeleccionadoAfiltrar);
+      const pokemonesFiltradosPorTipo = filtrarPorTipo(tipoSeleccionadoAfiltrar, data.pokemon);
       // assert
       expect(pokemonesFiltradosPorTipo.length).toBe(24);
       // console.log(pokemonesFiltradosPorTipo.length);
       expect(pokemonesFiltradosPorTipo[0].name).toBe('bulbasaur');
+    });
+    //cambiar nombre
+    it('obtener los pokemon pertenecientes a cada tipo', () => {
+      // arrange
+      const tipoSeleccionadoAfiltrar = 'todos';
+      // act
+      const pokemonesFiltradosPorTipo = filtrarPorTipo(tipoSeleccionadoAfiltrar, data.pokemon);
+      // assert
+      expect(pokemonesFiltradosPorTipo.length).toBe(251);
+      // console.log(pokemonesFiltradosPorTipo.length);
     });
   });
   describe('filtrar pokemones', () => {
@@ -80,7 +93,7 @@ describe('anotherExample', () => {
       // arrange
       const valorAfiltrar = 'char';
       // act
-      const pokemonesFiltrados = filtrarPorNombre(valorAfiltrar);
+      const pokemonesFiltrados = filtrarPorNombre(valorAfiltrar, data.pokemon);
       // assert
       expect(pokemonesFiltrados.length).toBe(3);
     });
@@ -88,20 +101,57 @@ describe('anotherExample', () => {
       // arrange
       const valorAfiltrar = '001';
       // act
-      const pokemonesFiltrados = filtrarPorNombre(valorAfiltrar);
+      const pokemonesFiltrados = filtrarPorNombre(valorAfiltrar, data.pokemon);
       // assert
       expect(pokemonesFiltrados.length).toBe(1);
       expect(pokemonesFiltrados[0].name).toBe('bulbasaur');
     });
   });
+  // Filtra completa la data.
   describe('Ordenar pokemon alfabeticamente', () => {
     it('ordenar ascendente A-Z', () => {
-      // act --> yo decia que cosa mandi
-      const pokemon = ordenarPokemon();
+      const orden = 'ascendente';
+      // act 
+      const pokemon = ordenarPokemon(orden, data.pokemon);
       // console.log(pokemon);
       // assert
       expect(pokemon[2].name).toBe('aipom');
-      console.log(pokemon[2].name);
+      // console.log(pokemon[2].name);
     });
+    it('ordenar descendente Z-A', () => {
+      const orden = 'descendente';
+      // act 
+      const pokemon = ordenarPokemon(orden, data.pokemon);
+      // console.log(pokemon);
+      // assert
+      expect(pokemon[2].name).toBe('yanma');
+      // console.log(pokemon[2].name);
+    });
+  });
+
+  describe('Va a mostrar los pokemones considerando ordenar, los filtros por tipo, e input ingresados por el usuario', () => {
+    it('filtrar en conjunto por tipo, nombre y ordenar alfabeticamente ascendente', () => {
+    // arrange
+    const orden = 'ascendente';
+    const tipoSeleccionado = 'grass';
+    const nombreBuscado = "bell";
+    // act
+    const pokemones = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado);
+    // assert
+    expect(pokemones[0].name).toBe('bellossom');
+    expect(pokemones[1].name).toBe('bellsprout');
+    });
+
+    it('filtrar en conjunto por tipo, nombre y ordenar alfabeticamente descendente', () => {
+      // arrange
+      const orden = 'descendente';
+      const tipoSeleccionado = 'grass';
+      const nombreBuscado = "bell";
+      // act
+      const pokemones = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado);
+      // assert
+      expect(pokemones[0].name).toBe('weepinbell');
+      expect(pokemones[1].name).toBe('bellsprout');
+      });
   });
 });

@@ -1,7 +1,7 @@
 import data from './data/pokemon/pokemon.js';
 
 import {
-  filtrarPorNombre, obtenerTipos, filtrarPorTipo, ordenarPokemon,
+  obtenerTipos, filtroEnConjunto,
 } from './data.js';
 
 // Mostrando y ocultando el menu desplegable.
@@ -46,14 +46,22 @@ const pintarEnPantalla = (pokemones) => {
 };
 
 // Selector de a-z
-const selectorAscedente = obtenerLugarParaImprimir('ascendente');
-
-selectorAscedente.addEventListener('click', () => {
-});
-ordenarPokemon();
+const selectorPorOrden = obtenerLugarParaImprimir('selectOrder');
 
 // Selector de tipo de pokemon
 const selectorTipoPokemon = obtenerLugarParaImprimir('type-pokemon');
+
+// Pintando en pantalla solo los pokemones filtrados por medio del buscador.
+const inputNombrePokemon = document.getElementById('input-name-pokemon');
+
+selectorPorOrden.addEventListener('change', () => {
+  const orden = selectorPorOrden.value;
+  const tipoSeleccionado = selectorTipoPokemon.value;
+  const nombreBuscado = inputNombrePokemon.value;
+  containerPokedex.innerHTML = '';
+  const ordenados = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado);
+  pintarEnPantalla(ordenados);
+});
 
 const crearPlantillaPokemonTipo = type => `
         <select>
@@ -61,12 +69,11 @@ const crearPlantillaPokemonTipo = type => `
         </select>
     `;
 
-const imprimirEnSelector = (option) => {
-  selectorTipoPokemon.insertAdjacentHTML('beforeend', option);
+const imprimirEnSelector = (select) => {
+  selectorTipoPokemon.insertAdjacentHTML('beforeend', select);
 };
 
 const pintarEnSelector = (type) => {
-  selectorTipoPokemon.innerHTML = '';
   type.forEach((tipoPokemones) => {
     const pokemonType = tipoPokemones;
     const tipo = crearPlantillaPokemonTipo(pokemonType);
@@ -75,12 +82,13 @@ const pintarEnSelector = (type) => {
 };
 pintarEnSelector(obtenerTipos());
 // Pintando en pantalla solo los pokemones filtrados por tipo.
-selectorTipoPokemon.addEventListener('click', () => {
-  const tipoAFiltrar = selectorTipoPokemon.value;
-  const pokemonesFiltradosPorTipo = filtrarPorTipo(tipoAFiltrar);
+selectorTipoPokemon.addEventListener('change', () => {
+  const orden = selectorPorOrden.value;
+  const tipoSeleccionado = selectorTipoPokemon.value;
+  const nombreBuscado = inputNombrePokemon.value;  
+  const pokemonesFiltradosPorTipo = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado);
   pintarEnPantalla(pokemonesFiltradosPorTipo);
 });
-filtrarPorTipo();
 
 // Agregando style desde el JS
 const irPokedex = () => {
@@ -104,11 +112,11 @@ const irPokedex = () => {
 // Al hacer click ir Mostrando y ocultando pantallas en el celular
 document.getElementById('pokedex-welcome').addEventListener('click', () => irPokedex());
 
-// Pintando en pantalla solo los pokemones filtrados por medio del buscador.
-const inputNombrePokemon = document.getElementById('input-name-pokemon');
 inputNombrePokemon.addEventListener('input', () => {
-  const valorAFiltrar = inputNombrePokemon.value;
-  const pokemonesFiltrados = filtrarPorNombre(valorAFiltrar);
+  const orden = selectorPorOrden.value;
+  const tipoSeleccionado = selectorTipoPokemon.value;
+  const nombreBuscado = inputNombrePokemon.value;
+  const pokemonesFiltrados = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado);
   pintarEnPantalla(pokemonesFiltrados);
 });
 
