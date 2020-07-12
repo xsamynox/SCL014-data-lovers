@@ -1,4 +1,3 @@
-// estas funciones son de ejemplo
 
 import data from './data/pokemon/pokemon.js';
 
@@ -47,4 +46,10 @@ export const filtroEnConjunto = (orden, tipoSeleccionado, nombreBuscado) => {
   const ordenPorNombreTipo = filtrarPorNombre(nombreBuscado, pokemonesFiltradoPorTipo);
   const pokemonesPorNombreTipoOrdenados = ordenarPokemon(orden, ordenPorNombreTipo);
   return pokemonesPorNombreTipoOrdenados;
+};
+
+//Buscar id de cada pokemon
+export const buscarId = pokemonNumber => {
+  const pokemonNum = data.pokemon.find(pokemon => pokemon.num === pokemonNumber);
+  return pokemonNum;
 };

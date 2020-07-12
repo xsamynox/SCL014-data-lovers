@@ -1,5 +1,5 @@
 import {
-  obtenerTipos, filtrarPorNombre, filtrarPorTipo, ordenarPokemon, filtroEnConjunto,
+  obtenerTipos, filtrarPorNombre, filtrarPorTipo, ordenarPokemon, filtroEnConjunto, buscarId,
 }
   from '../src/data.js';
 
@@ -94,5 +94,17 @@ describe('Va a mostrar los pokemones considerando ordenar, los filtros por tipo,
     // assert
     expect(pokemones[0].name).toBe('weepinbell');
     expect(pokemones[1].name).toBe('bellsprout');
+  });
+});
+
+describe('obtener detalle de pokemon', () => {
+  it('obtener id de cada pokemon', () => {
+    // arrange
+    const pokemonNum = '001';
+    // act
+    const pokemonByNum = buscarId(pokemonNum);
+    // assert
+    expect(pokemonByNum.num).toBe('001');
+    expect(pokemonByNum.name).toBe('bulbasaur')
   });
 });

@@ -1,34 +1,64 @@
 import data from './data/pokemon/pokemon.js';
 
 import {
-  obtenerTipos, filtroEnConjunto,
+  obtenerTipos, filtroEnConjunto, buscarId,
 }
   from './data.js';
 
 // Obtener ID de elementos
-const obtenerLugarParaImprimir = identificador => document.getElementById(identificador);
+const buscadorDeId = identificador => document.getElementById(identificador);
 // Selector de a-z
-const selectorPorOrden = obtenerLugarParaImprimir('selectOrder');
+const selectorPorOrden = buscadorDeId('selectOrder');
 
 // Selector de tipo de pokemon
-const selectorTipoPokemon = obtenerLugarParaImprimir('type-pokemon');
+const selectorTipoPokemon = buscadorDeId('type-pokemon');
 
 // Pintando en pantalla solo los pokemones filtrados por medio del buscador.
 const inputNombrePokemon = document.getElementById('input-name-pokemon');
 
 // obtener lugar donde se imprimen pokemones
-const containerPokedex = obtenerLugarParaImprimir('pokemon-container');
+const containerPokedex = buscadorDeId('pokemon-container');
+
+const  modal = buscadorDeId("modal");
+
+// Get the <span> element that closes the modal
+const span = buscadorDeId("close");
+span.addEventListener('click', () => {
+  modal.style.display = "none";
+});
+
+// Obtener el boton que abre el modal
+const asignarEvento = () => {
+  document.querySelectorAll('[data-pokemon]').forEach(button => {
+    button.addEventListener('click', () => {
+      const id = button.dataset.pokemon;
+      const pokemonEncontrado = buscarId(id);
+      const pokemonImpreso = crearPlantillaModal(
+        pokemonEncontrado.name,
+        pokemonEncontrado.num,
+        pokemonEncontrado.img,
+        pokemonEncontrado.about,
+        pokemonEncontrado.type,
+        pokemonEncontrado.resistant,
+        pokemonEncontrado.weaknesses
+        );    
+      imprimirEnModal(pokemonImpreso);   
+      modal.style.display = "block"; 
+    });
+  });
+};
+
 
 // Mostrando y ocultando el menu desplegable.
 const toggleAside = (boolean) => {
   if (boolean) {
-    document.getElementById('aside').classList.add('visible');
+    buscadorDeId('aside').classList.add('visible');
   } else {
-    document.getElementById('aside').classList.remove('visible');
+    buscadorDeId('aside').classList.remove('visible');
   }
 };
-document.getElementById('openPage').addEventListener('click', () => toggleAside(true));
-document.getElementById('closePage').addEventListener('click', () => toggleAside(false));
+buscadorDeId('openPage').addEventListener('click', () => toggleAside(true));
+buscadorDeId('closePage').addEventListener('click', () => toggleAside(false));
 
 // Agregando style desde el JS
 const irPokedex = () => {
@@ -55,15 +85,14 @@ document.getElementById('pokedex-welcome').addEventListener('click', () => irPok
 
 // Creando la plantilla donde estaran los Pokemon
 const crearPlantillaPokemon = (name, image, num) => `
-        <section class="name-pokemon">
+        <button class="name-pokemon" data-pokemon="${num}"> 
             <section class="img-pokemon">
             <img src="${image}" alt="${name}">
             </section>
             <h2 id="number-poke">#${num}</h2>
             <h1 id="name-poke">${name}</h1>
-        </section>
+        </button>
     `;
-
 const imprimirEnPantalla = (pokemon) => {
   containerPokedex.insertAdjacentHTML('beforeend', pokemon);
 };
@@ -88,6 +117,7 @@ selectorPorOrden.addEventListener('change', () => {
   containerPokedex.innerHTML = '';
   const ordenados = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado);
   pintarEnPantalla(ordenados);
+  asignarEvento();
 });
 
 // Imprime tipos en select de html
@@ -116,6 +146,7 @@ selectorTipoPokemon.addEventListener('change', () => {
   const nombreBuscado = inputNombrePokemon.value;
   const pokemonesFiltradosPorTipo = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado);
   pintarEnPantalla(pokemonesFiltradosPorTipo);
+  asignarEvento();
 });
 
 // Filtrar por nombre ingresado en input
@@ -125,10 +156,40 @@ inputNombrePokemon.addEventListener('input', () => {
   const nombreBuscado = inputNombrePokemon.value;
   const pokemonesFiltrados = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado);
   pintarEnPantalla(pokemonesFiltrados);
+  asignarEvento();
 });
+
+//Creando plantilla modal
+const crearPlantillaModal = (name, num, image, about, type, resistant, weaknesses) => `
+        <section>
+          <p>${name}</p>
+          <br>
+          <p>#${num}</p>
+        </section>
+        <section>
+          <img src="${image}" alt="${name}">
+          <p>Acerca: ${about}</p>
+        </section>
+        <section>
+        <p>Tipo: ${type}</p>
+        </section>
+        <section>
+          <p>Resistencia: ${resistant}</p> 
+          <p>Debilidades: ${weaknesses}</p>
+        </section>
+    `;
+
+const containerModal = buscadorDeId('pokemon-container-modal');
+const imprimirEnModal = (div) => {
+  containerModal.innerHTML = '';
+  containerModal.insertAdjacentHTML('beforeend', div);
+};
 
 // recorremos el arreglo de todos los pokemones
 pintarEnPantalla(data.pokemon);
+
+// asignar evento a cada pokemon de la pantalla
+asignarEvento();
 
 // Mostrar en pantala los tipos seleccionados.
 pintarEnSelector(obtenerTipos());
