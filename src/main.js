@@ -9,56 +9,85 @@ import {
 const buscadorDeId = identificador => document.getElementById(identificador);
 // Selector de a-z
 const selectorPorOrden = buscadorDeId('selectOrder');
-
 // Selector de tipo de pokemon
 const selectorTipoPokemon = buscadorDeId('type-pokemon');
-
 // Pintando en pantalla solo los pokemones filtrados por medio del buscador.
 const inputNombrePokemon = document.getElementById('input-name-pokemon');
-
 // obtener lugar donde se imprimen pokemones
 const containerPokedex = buscadorDeId('pokemon-container');
-
-const  modal = buscadorDeId("modal");
+// obtener el id del modal
+const modal = buscadorDeId('modal');
 
 // Get the <span> element that closes the modal
-const span = buscadorDeId("close");
+const span = buscadorDeId('close');
 span.addEventListener('click', () => {
-  modal.style.display = "none";
+  modal.style.display = 'none';
 });
+
+// Creando plantilla para el modal
+const crearPlantillaModal = (name, num, image, about, type, resistant, weaknesses) => `
+        <section>
+          <h2>${name}<br>#${num}</h2>
+        </section>
+        <section>
+          <img src="${image}" alt="${name}">
+        </section>
+        <section class="div-about">
+          <p>${about}</p>
+        </section>
+        <section class="type">
+        <p><strong>Tipo:</strong> ${type}</p>
+        </section>
+        <section>
+          <p><strong>Resistencia:</strong> ${resistant}</p> 
+          <p><strong>Debilidades:</strong> ${weaknesses}</p>
+        </section>
+    `;
+
+const containerModal = buscadorDeId('pokemon-container-modal');
+const imprimirEnModal = (div) => {
+  containerModal.innerHTML = '';
+  containerModal.insertAdjacentHTML('beforeend', div);
+};
 
 // Obtener el boton que abre el modal
 const asignarEvento = () => {
-  document.querySelectorAll('[data-pokemon]').forEach(button => {
+  document.querySelectorAll('[data-pokemon]').forEach((button) => {
     button.addEventListener('click', () => {
       const id = button.dataset.pokemon;
       const pokemonEncontrado = buscarId(id);
       const pokemonImpreso = crearPlantillaModal(
-        pokemonEncontrado.name,
+        pokemonEncontrado.name.charAt(0).toUpperCase() + pokemonEncontrado.name.slice(1),
         pokemonEncontrado.num,
         pokemonEncontrado.img,
         pokemonEncontrado.about,
-        pokemonEncontrado.type,
-        pokemonEncontrado.resistant,
-        pokemonEncontrado.weaknesses
-        );    
-      imprimirEnModal(pokemonImpreso);   
-      modal.style.display = "block"; 
+        pokemonEncontrado.type.join(',  '),
+        pokemonEncontrado.resistant.join(',  '),
+        pokemonEncontrado.weaknesses.join(',  '),
+      );
+      imprimirEnModal(pokemonImpreso);
+      modal.style.display = 'block';
     });
   });
 };
 
-
 // Mostrando y ocultando el menu desplegable.
+const menuLateral = buscadorDeId('aside');
 const toggleAside = (boolean) => {
   if (boolean) {
-    buscadorDeId('aside').classList.add('visible');
+    menuLateral.classList.add('visible');
   } else {
-    buscadorDeId('aside').classList.remove('visible');
+    menuLateral.classList.remove('visible');
   }
 };
 buscadorDeId('openPage').addEventListener('click', () => toggleAside(true));
 buscadorDeId('closePage').addEventListener('click', () => toggleAside(false));
+
+window.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+});
 
 // Agregando style desde el JS
 const irPokedex = () => {
@@ -75,22 +104,22 @@ const irPokedex = () => {
       body.style.backgroundImage = 'url(./imagen/banner-sky2-03a.png)';
     }
   };
-  const x = window.matchMedia('(max-width: 736px)');
-  myMedia(x); // Call listener function at run time
-  x.addListener(myMedia); // Attach listener function on state changes
+  const screen1 = window.matchMedia('(max-width: 736px)');
+  myMedia(screen1); // Call listener function at run time
+  screen1.addListener(myMedia); // Attach listener function on state changes
 };
 
 // Al hacer click ir Mostrando y ocultando pantallas en el celular
 document.getElementById('pokedex-welcome').addEventListener('click', () => irPokedex());
 
-// Creando la plantilla donde estaran los Pokemon
+// Creando la plantilla para los pokemones en la Pokedex
 const crearPlantillaPokemon = (name, image, num) => `
         <button class="name-pokemon" data-pokemon="${num}"> 
             <section class="img-pokemon">
-            <img src="${image}" alt="${name}">
+            <img id="imagen-cada-poke" src="${image}" alt="${name}">
             </section>
-            <h2 id="number-poke">#${num}</h2>
-            <h1 id="name-poke">${name}</h1>
+            <h2>#${num}</h2>
+            <h1>${name}</h1>
         </button>
     `;
 const imprimirEnPantalla = (pokemon) => {
@@ -159,31 +188,12 @@ inputNombrePokemon.addEventListener('input', () => {
   asignarEvento();
 });
 
-//Creando plantilla modal
-const crearPlantillaModal = (name, num, image, about, type, resistant, weaknesses) => `
-        <section>
-          <p>${name}</p>
-          <br>
-          <p>#${num}</p>
-        </section>
-        <section>
-          <img src="${image}" alt="${name}">
-          <p>Acerca: ${about}</p>
-        </section>
-        <section>
-        <p>Tipo: ${type}</p>
-        </section>
-        <section>
-          <p>Resistencia: ${resistant}</p> 
-          <p>Debilidades: ${weaknesses}</p>
-        </section>
-    `;
-
-const containerModal = buscadorDeId('pokemon-container-modal');
-const imprimirEnModal = (div) => {
-  containerModal.innerHTML = '';
-  containerModal.insertAdjacentHTML('beforeend', div);
-};
+// Al presionar cualquier lugar fuera del modal, se cierra
+window.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+});
 
 // recorremos el arreglo de todos los pokemones
 pintarEnPantalla(data.pokemon);
@@ -193,3 +203,34 @@ asignarEvento();
 
 // Mostrar en pantala los tipos seleccionados.
 pintarEnSelector(obtenerTipos());
+
+// Agregando style desde el JS
+const openNidos = () => {
+  const myMedia = (x) => {
+    const body = document.getElementsByTagName('body')[0];
+    document.getElementById('screen-welcome').style.display = 'none';
+    document.getElementById('section-nidos').style.display = 'block';
+    document.getElementsByTagName('main')[0].style.display = 'none';
+    document.getElementById('aside').style.display = 'block';
+    // document.getElementById('closePage').style.display = 'none';
+    const y = window.matchMedia('(min-width: 992px)');
+    if (x.matches) { // If media query matches
+      body.style.backgroundImage = 'url(./imagen/pantalla-nidos1.png)';
+      document.getElementById('aside').style.display = 'flex';
+    } else if (y.matches) {
+      body.style.backgroundImage = 'url(./imagen/pantalla-nidos.png)';
+    } else {
+      body.style.backgroundImage = 'url(./imagen/pantalla-nidos3.png)';
+    }
+  };
+  const screen = window.matchMedia('(max-width: 736px)');
+  myMedia(screen); // Call listener function at run time
+  screen.addListener(myMedia); // Attach listener function on state changes
+};
+
+// Al hacer click en el boton nido de la Pprincipal se va a otra pantalla
+document.getElementById('nidos').addEventListener('click', () => openNidos());
+// Al hacer click en el boton nido del aside se va a otra pantalla
+document.getElementById('nidos1').addEventListener('click', () => openNidos());
+// Al hacer click en el boton pokedex del aside se va a otra pantalla
+document.getElementById('pokedex').addEventListener('click', () => irPokedex());

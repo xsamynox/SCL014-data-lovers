@@ -48,8 +48,8 @@ export const filtroEnConjunto = (orden, tipoSeleccionado, nombreBuscado) => {
   return pokemonesPorNombreTipoOrdenados;
 };
 
-//Buscar id de cada pokemon
-export const buscarId = pokemonNumber => {
+// Buscar id de cada pokemon
+export const buscarId = ((pokemonNumber) => {
   const pokemonNum = data.pokemon.find(pokemon => pokemon.num === pokemonNumber);
   return pokemonNum;
-};
+});

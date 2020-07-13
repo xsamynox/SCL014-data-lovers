@@ -13,14 +13,15 @@
     <!--Pantalla de Inicio-->
     <section id="screen-welcome" class="not-visible welcome">
         <section class="btn-welcome">
-          <button>
+          <button>  
             <img class="image-btn1" src="./imagen/btn-volver-jgo.png" alt="">
-            <p>Ir al juego</p>
+            <br>
+            <a href="https://play.google.com/store/apps/details?id=com.nianticlabs.pokemongo" target="_blank">Ir al juego</a>
           </button>       
         </section>     
         <section class="position-btn">
           <section class="btn-welcome1">
-            <button> 
+            <button id="nidos"> 
               <img class="image-btn" src="./imagen/btn-ubi2.png" alt="">
               <p>Nidos</p>
             </button>
@@ -44,7 +45,7 @@
     <!--Pantalla Pokédex-->
     <main>
       <section class="menu">
-          <button class="tag2" id= "openPage">☰</button>             
+          <button class="tag" id= "openPage">☰</button>             
           <select class="tag" name="a-z" id="selectOrder">
             <option value="ordenado">Ordenar</option>
             <option value="ascendente">A-Z</option>
@@ -79,17 +80,17 @@
         <section>
         <button class="tag2" id="closePage">X</button>
         </section>
-        <button class="btn-aside"> 
+        <button id="pokedex" class="btn-aside"> 
         <img class="image-btn-aside" src="./imagen/btn-pok2.png" alt="">
         <p> Pokédex</p>
         </button>
-        <button class="btn-aside"> 
+        <button id="nidos1" class="btn-aside"> 
           <img class="image-btn-aside" src="./imagen/btn-ubi2.png" alt="">
           <p>Nidos</p>
         </button>
-        <button id="game" class="not-visible">
-          <img class="image-btn1" src="./imagen/btn-volver-jgo.png" alt="">
-          <p>Ir al juego</p> 
+        <button class="btn-aside not-visible" id="game">
+          <img class="image-btn-aside" src="./imagen/btn-volver-jgo.png" alt="">
+          <a href="https://play.google.com/store/apps/details?id=com.nianticlabs.pokemongo" target="_blank">Ir al juego</a>
         </button>
         <button class="btn-aside"> 
           <img class="image-btn-aside" src="./imagen/btn-pokeball2.png" alt="">
@@ -100,6 +101,10 @@
           <p>Glosario</p>
         </button>
     </aside>
+     <!--Sección Nidos-->
+    <section id="section-nidos" class="not-visible">
+     
+    </section>
 
     <footer>
       <p>©2020 Niantic, Inc. ©2020 Pokémon. ©1995-2020 Nintendo / Creatures Inc. / GAME FREAK inc. Pokémon and Pokémon character names are trademarks of Nintendo.</p>

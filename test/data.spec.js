@@ -105,6 +105,6 @@ describe('obtener detalle de pokemon', () => {
     const pokemonByNum = buscarId(pokemonNum);
     // assert
     expect(pokemonByNum.num).toBe('001');
-    expect(pokemonByNum.name).toBe('bulbasaur')
+    expect(pokemonByNum.name).toBe('bulbasaur');
   });
 });
