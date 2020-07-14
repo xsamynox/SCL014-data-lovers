@@ -221,10 +221,18 @@ footer {
     font-size: 28px;
     font-weight: bold;
 }
-
+/* .main .menu > :not(.tag) {
+    display: none;
+} */
 
 /* Smartphone */
 @media screen and (max-width: 736px) and (min-width: 320px) {
+    body{
+        background-image: url("./imagen/banner-sky2-01.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
     /* Ocultando main, aside y footer en la pantalla principal. */
     main{ 
         display: none;
@@ -244,12 +252,6 @@ footer {
     }
     #closePage{
         display: none;
-    }
-    body{
-        background-image: url("./imagen/banner-sky2-01.png");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
     }
     .image-btn{
         width: 74px;
@@ -413,7 +415,7 @@ footer {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    }
+    } 
     /* Ocultando main, aside y footer en la pantalla principal. */
     main{ 
         display: none;
@@ -438,12 +440,7 @@ footer {
         width: 120px;
         height: 120px;
     }
-    /* Boton volver al juego */
-    .image-btn1{
-        width: 80px;
-        height: 80px;
-    }
-    /* Boton volver al juego inicio y selecciones */
+    /* Botones selecciones */
     button{
         /* border-radius: 60%; */
         font-size: 1.1em;
@@ -500,5 +497,15 @@ footer {
         width: 100%; 
         height: 68%; 
         overflow-y: scroll;  
+    }
+    /* Boton volver al juego */
+    .image-btn1{
+        width: 80px;
+        height: 80px;
+    }
+    #game{
+        display: block;
+        text-align: center;
+        font-size: 0.5em;
     }
 }
