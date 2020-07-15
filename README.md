@@ -2,7 +2,7 @@
 
 ## Índice
 
-- [Pokémon Go](#cifrado-césar)
+- [Pokémon Go](#pokemon-go)
   - [Índice](#índice)
   - [1. Preámbulo](#1-preámbulo)
   - [2. Definición del proyecto](#2-definición-del-proyecto)
