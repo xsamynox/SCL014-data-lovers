@@ -21,8 +21,19 @@ body {
 .visible {
     display: block;
 }
+aside{
+    position: fixed;
+    width: 150px;
+    height: 100%;
+    float: left;
+    background-color: rgba(37, 40, 56, 0.6);   
+    text-align: center;
+    color: #ffff;
+    font-family: 'Allerta Stencil';
+    font-size: 1em;
+    line-height: 0px;
+}
 button{
-    /* border-radius: 60%; */
     border-color: transparent;
     background-color: transparent;
     margin: 0%;
@@ -33,7 +44,6 @@ button{
     line-height: 0px;
 }
 .btn-aside {
-    /* border-radius: 60%; */
     border-color: transparent;
     background-color: transparent;
     margin: 0%;
@@ -53,18 +63,6 @@ button{
     width: 80px;
     height: 80px;
 }
-aside{
-    position: fixed;
-    width: 150px;
-    height: 100%;
-    float: left;
-    background-color: rgba(37, 40, 56, 0.6);   
-    text-align: center;
-    color: #ffff;
-    font-family: 'Allerta Stencil';
-    font-size: 1em;
-    line-height: 0px;
-}
 .menu{
     margin-top: 120px;
     position: fixed;
@@ -75,23 +73,22 @@ aside{
 }
 .tag{
     color: #ffff;
-    font-family: 'Allerta Stencil';
     font-size: 1em;
     text-align: center;
     height: 50px;
+    font-family: 'Allerta Stencil';
 }
 .tag:hover{
-    font-family: 'Allerta Stencil';
     font-size: 1em;
     background-color: rgba(255,255,255,0.50);
     height: 50px;
 }
-
 .tag2{
     margin-top: 85%;
     color: #ffff;
     font-family: 'Allerta Stencil';
     font-size: 1.2em;
+    font-family: 'Allerta Stencil';
 }
 button#openPage{
     float: left;
@@ -108,7 +105,6 @@ select{
 option{
     background-color: rgba(133, 135, 143, 0.637);
 }
-
 input {
     width: 20%;
     height: 63%;    
@@ -155,7 +151,6 @@ input {
 section.img-pokemon {
     background: rgba(243, 242, 242, 0.25);
 }
-
 footer {
     position: absolute;
     bottom: 0;
@@ -177,17 +172,17 @@ footer {
     color: #ffff;
 }
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
+    width: 100%;
+    height: 100%; 
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
 }
 .modal-content {
     background-color: #fefefe;
@@ -212,7 +207,7 @@ footer {
     text-decoration-color: rgba(37, 40, 56, 0.6);
 }
 .type {
-    background-color: red;
+    background-color: transparent;
 }
 /* boton cerrar modal */
 .close{
@@ -221,9 +216,6 @@ footer {
     font-size: 28px;
     font-weight: bold;
 }
-/* .main .menu > :not(.tag) {
-    display: none;
-} */
 
 /* Smartphone */
 @media screen and (max-width: 736px) and (min-width: 320px) {
@@ -234,23 +226,15 @@ footer {
         background-size: cover;
     }
     /* Ocultando main, aside y footer en la pantalla principal. */
-    main{ 
+    main, aside, footer{ 
         display: none;
     }
-    aside{
-       display: none;
-   }
-    footer{
-       display: none;
-   }
+    /* Mostrando los botones de la pantalla principal */
    .welcome {
     display: block;
     }
     /* Ocultando botón de abrir y cerrar menu desplegable */
-    #openPage{
-        display: none;
-    }
-    #closePage{
+    #openPage, #closePage{
         display: none;
     }
     .image-btn{
@@ -280,6 +264,11 @@ footer {
         height: 40px;
     }
     /* Boton volver al juego */
+    .btn-welcome {
+        margin-top: 5%;
+        display: flex;
+        justify-content: center;
+    }
     .image-btn1{
         width: 40px;
         height: 40px;
@@ -287,10 +276,9 @@ footer {
     #game{
         display: block;
         text-align: center;
-        font-size: 0.5em;
+        font-size: 0.6em;
+        margin-top: 3px;
     }
-    /* Boton volver al juego inicio y selecciones */
-    /* boton ir al juego */
     a{
         border: 0;
         color: #ffff;
@@ -298,11 +286,7 @@ footer {
         font-size: 0.8em;
         text-align: center;
     }
-    .btn-welcome {
-        margin-top: 5%;
-        display: flex;
-        justify-content: center;
-    } 
+    /* Botones selecciones Pprincipal */
     .btn-welcome1 {
         display: flex;
         justify-content: center;
@@ -320,88 +304,30 @@ footer {
     aside {
         position: absolute;
         bottom: 0; 
-        line-height: 0px;
         width: 100%;
         height: 10%;
     }
     .menu{
         margin-top: 100px;
-        /*position: fixed;*/
         display: inline-block;
         width: 100%;
         height: 40px;
-        background-color: rgba(37, 40, 56, 0.6);      
-        text-align: center;
-    }
-    .tag{
-        color: #ffff;
-        font-family: 'Allerta Stencil';
-        font-size: 1em;
-        text-align: center;
-        height: 50px;
-    }
-    .tag:hover{
-        color: rgb(73,2,2);
-        font-family: 'Allerta Stencil';
-        font-size: 1em;
-        background-color: rgba(255,255,255,0.50);
-        height: 40px;
-    }
-    .tag2{
-        color: #ffff;
-        font-family: 'Allerta Stencil';
-        font-size: 1.2em;
-    }
-    button#openPage {
-        float: left;
-        height: 50px;
-    }
-    select{
-        margin-left: 1%;
-        width: 20%;
-        height: 80%;
-        background-color: transparent;    
-        border:transparent;
+        background-color: rgba(37, 40, 56, 0.6);
     }
     input {
         width: 40%;
         height: 80%;
-        background-color: transparent;
-        border: transparent; 
     }
     .container{
-        position: fixed;
         margin-top: 45%;
-        width: 99%; 
-        height: 60%; 
-        overflow-y: scroll;  
     }
     #iconSearch{
-        width: auto;
         height: 15px;
-        margin-left: 1px;    
-    }
-    .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
-        padding-top: 100px; /* Location of the box */
-        left: 0;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */       
     }
     .modal-content {
-        background-color: #fefefe;
-        margin: auto;
-        padding: 20px;
-        border: 1px solid #888;
         width: 80%;
         height: 65%;
-        border-radius: 15px;
-        overflow-y: scroll; /* Enable scroll if needed */        
+        overflow-y: scroll; /* Enable scroll if needed */ 
     }
     .div-about{
         width: 200px;
@@ -417,35 +343,26 @@ footer {
     background-size: cover;
     } 
     /* Ocultando main, aside y footer en la pantalla principal. */
-    main{ 
+    main, aside, footer{ 
         display: none;
     }
-    aside{
-       display: none;
-   }
-    footer{
-       display: none;
-   }
+    /* Mostrando los botones de la pantalla principal */
    .welcome {
     display: block;
     }
     /* Ocultando botón de abrir y cerrar menu desplegable */
-    #openPage{
+    #openPage, #closePage{
         display: none;
     }
-    #closePage{
-        display: none;
+    /* Botones selecciones */
+    button{
+        font-size: 1.1em;
+        margin-left: 3%;
+        margin-right: 3%;
     }
     .image-btn{
         width: 120px;
         height: 120px;
-    }
-    /* Botones selecciones */
-    button{
-        /* border-radius: 60%; */
-        font-size: 1.1em;
-        margin-left: 3%;
-        margin-right: 3%;
     }
     .btn-welcome {
         margin-top: 5%;
@@ -469,7 +386,6 @@ footer {
     aside {
         position: absolute;
         bottom: 0; 
-        line-height: 0px;
         width: 100%;
         height: 11%;
     }
@@ -486,17 +402,15 @@ footer {
         width: 80px;
         height: 80px;
     }
-    /* Sin hover en el telefono */
+    /* Sin hover en la tablet */
     .image-btn-aside:hover{
         width: 80px;
         height: 80px;
     }
     .container{
-        position: fixed;
         margin-top: 25%;
         width: 100%; 
         height: 68%; 
-        overflow-y: scroll;  
     }
     /* Boton volver al juego */
     .image-btn1{
@@ -506,6 +420,20 @@ footer {
     #game{
         display: block;
         text-align: center;
-        font-size: 0.5em;
+        font-size: 1em;
+    }
+    a{
+        border: 0;
+        color: #ffff;
+        text-decoration: underline;
+        font-size: 1.5em;
+        text-align: center;
+    }
+    /* Modal */
+    .modal-content {
+        width: 80%;
+        height: 60%;
+        overflow-y: scroll; /* Enable scroll if needed */ 
+        font-size: 1em;
     }
 }

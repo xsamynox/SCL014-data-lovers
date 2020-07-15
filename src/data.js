@@ -7,7 +7,7 @@ export const obtenerTipos = () => {
   return tiposUnicos;
 };
 
-// Filtro por tipo y nombre ingresado en simultaneo
+// Filtro por nombre y numero ingresado
 export const filtrarPorNombre = ((valorAFiltrar, pokemones) => {
   const filtroNombre = pokemones.filter(atrib => atrib.name.includes(valorAFiltrar.toLowerCase())
     || atrib.num.includes(valorAFiltrar));

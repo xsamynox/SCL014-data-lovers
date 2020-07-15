@@ -27,6 +27,7 @@ closeModal.addEventListener('click', () => {
 // Creando plantilla para el modal
 const crearPlantillaModal = (name, num, image, about, type, resistant, weaknesses) => `
         <section>
+        <section>
           <h2>${name}<br>#${num}</h2>
         </section>
         <section>
@@ -35,12 +36,14 @@ const crearPlantillaModal = (name, num, image, about, type, resistant, weaknesse
         <section class="div-about">
           <p>${about}</p>
         </section>
-        <section class="type">
-        <p><strong>Tipo:</strong> ${type}</p>
-        </section>
         <section>
-          <p><strong>Resistencia:</strong> ${resistant}</p> 
-          <p><strong>Debilidades:</strong> ${weaknesses}</p>
+          <section class="type">
+            <p><strong>Tipo:</strong> ${type}</p>
+          </section>
+          <section>
+            <p id = "resistencia"><strong>Resistencia:</strong> ${resistant}</p> 
+            <p><strong>Debilidades:</strong> ${weaknesses}</p>
+          </section>
         </section>
     `;
 
@@ -163,3 +166,24 @@ asignarEvento();
 
 // Mostrar en pantala los tipos seleccionados.
 pintarEnSelector(obtenerTipos());
+/*
+const cambiarBorder = (tipo => {
+  console.log(tipo[0]);
+  const tipoPosible = tipo[0];
+  const tipologia = tipo;
+  tipologia.forEach(tipoPosible => {
+    const valor = tipoPosible;
+    console.log(valor);
+    const bodyPrueba = document.getElementsByTagName('body');
+    if (valor === 'grass'){
+      bodyPrueba.style.display.backgroundColor = 'green';
+    } else {
+      bodyPrueba.style.color = '#ffff'
+    }
+});
+
+});
+
+cambiarBorder(obtenerTipos());
+console.log(obtenerTipos());
+*/
