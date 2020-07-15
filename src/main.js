@@ -12,7 +12,7 @@ const selectorPorOrden = buscadorDeId('selectOrder');
 // Selector de tipo de pokemon
 const selectorTipoPokemon = buscadorDeId('type-pokemon');
 // Buscador input
-const inputNombrePokemon = document.getElementById('input-name-pokemon');
+const inputNombrePokemon = buscadorDeId('input-name-pokemon');
 // Obtener lugar donde se imprimen pokemones
 const containerPokedex = buscadorDeId('pokemon-container');
 // Obtener id del modal
@@ -41,7 +41,7 @@ const crearPlantillaModal = (name, num, image, about, type, resistant, weaknesse
             <p><strong>Tipo:</strong> ${type}</p>
           </section>
           <section>
-            <p id = "resistencia"><strong>Resistencia:</strong> ${resistant}</p> 
+            <p id ="resistencia"><strong>Resistencia:</strong> ${resistant}</p> 
             <p><strong>Debilidades:</strong> ${weaknesses}</p>
           </section>
         </section>
@@ -100,6 +100,8 @@ const pintarEnPantalla = (pokemones) => {
   });
 };
 
+// Asignandole un evento al selector por orden
+// Asignando en variables el valor de las option e input elegidos
 // Imprimiendo en pantalla la plantilla ordenada
 selectorPorOrden.addEventListener('change', () => {
   const orden = selectorPorOrden.value;
@@ -108,7 +110,7 @@ selectorPorOrden.addEventListener('change', () => {
   containerPokedex.innerHTML = '';
   const ordenados = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado);
   pintarEnPantalla(ordenados);
-  asignarEvento();
+  asignarEvento(); // Permite que se abra el modal despues de aplicados los filtros
 });
 
 // Plantilla que crea los tipos de pokemon en el select de html
@@ -131,6 +133,8 @@ const pintarEnSelector = (type) => {
   });
 };
 
+// Asignandole un evento al selector por tipo
+// Asignando en variables el valor de las option e input elegidos
 // Pintando en pantalla solo los pokemones filtrados por tipo.
 selectorTipoPokemon.addEventListener('change', () => {
   const orden = selectorPorOrden.value;
@@ -138,7 +142,7 @@ selectorTipoPokemon.addEventListener('change', () => {
   const nombreBuscado = inputNombrePokemon.value;
   const pokemonesFiltradosPorTipo = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado);
   pintarEnPantalla(pokemonesFiltradosPorTipo);
-  asignarEvento();
+  asignarEvento(); // Permite que se abra el modal despues de aplicados los filtros
 });
 
 // Filtrar por nombre ingresado en input
@@ -148,7 +152,7 @@ inputNombrePokemon.addEventListener('input', () => {
   const nombreBuscado = inputNombrePokemon.value;
   const pokemonesFiltrados = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado);
   pintarEnPantalla(pokemonesFiltrados);
-  asignarEvento();
+  asignarEvento(); // Permite que se abra el modal despues de aplicados los filtros
 });
 
 // Al presionar cualquier lugar fuera del modal, se cierra
@@ -166,6 +170,7 @@ asignarEvento();
 
 // Mostrar en pantala los tipos seleccionados.
 pintarEnSelector(obtenerTipos());
+
 /*
 const cambiarBorder = (tipo => {
   console.log(tipo[0]);
