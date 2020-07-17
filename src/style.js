@@ -12,6 +12,7 @@ const body = document.getElementsByTagName('body')[0];
 const screenWelconme = buscadorDeId('screen-welcome');
 const screenNidos = buscadorDeId('section-nidos');
 const screenEvolution = buscadorDeId('section-evolution');
+const screenGlossary = buscadorDeId('section-glossary');
 const goBack = buscadorDeId('go-back');
 
 // Alternar que muestre y oculte menu desplegable
@@ -98,6 +99,7 @@ const goGlossary = () => {
     main.style.display = 'none';
     screenNidos.style.display = 'none';
     screenEvolution.style.display = 'none';
+    screenGlossary.style.display = 'block';
     if (screenSize.matches) { // Smartphone / If media query matches
       body.style.backgroundImage = 'url(./imagen/banner-sky2-01a.png)';
       aside.style.display = 'flex';

@@ -26,12 +26,13 @@ aside{
     width: 150px;
     height: 100%;
     float: left;
-    background-color: rgba(37, 40, 56, 0.6);   
+    /*background-color: rgba(37, 40, 56, 0.6); */
+    background-color: rgba(37, 40, 56);  
     text-align: center;
     color: #ffff;
     font-family: 'Allerta Stencil';
     font-size: 1em;
-    line-height: 0px;
+    line-height: 0px;    
 }
 button{
     border-color: transparent;
@@ -84,11 +85,14 @@ button{
     height: 50px;
 }
 .tag2{
-    margin-top: 85%;
+    width: 30px;
+    height: 30px;
+    font-size: 1.5em;
+    margin-bottom: 50%;
     color: #ffff;
     font-family: 'Allerta Stencil';
-    font-size: 1.2em;
-    font-family: 'Allerta Stencil';
+    font-weight: bold;
+    margin-left: 70%;
 }
 button#openPage{
     float: left;
@@ -143,7 +147,8 @@ input {
     width: 150px;   
     height: auto;
     margin: 1%;
-    transition: width 1s, height 1s;     
+    transition: width 1s, height 1s;    
+    cursor: pointer; 
 }
 .name-pokemon:hover{
     transform: scale(1.2,1.2);    
@@ -185,27 +190,36 @@ footer {
     background-color: rgba(0,0,0,0.4); 
 }
 .modal-content {
-    background-color: #fefefe;
+    background-color:  rgba(37, 40, 56);  
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 60%;
+    width: 25%;
     border-radius: 15px;
     font-family: 'Source Sans Pro';
     font-weight: 400;
-    font-size: 0.8em;
-    color: black;
+    font-size: 0.9em;
+    color: #fff;
+}
+.tittle-modal{
+    color: rgb(179, 179, 13);
+    line-height: 0px;
+}
+strong{
+    color: rgb(179, 179, 13);
 }
 .div-about{
-    width: 30%;
+    width: 95%;
     height: auto;
-    background-color: rgb(211, 206, 206);
+    /* background-color: rgb(211, 206, 206); */
     padding: 5px;
     border-radius: 15px;
+    text-align: justify;
 }
 #type-pokemon{
     text-decoration-color: rgba(37, 40, 56, 0.6);
 }
+
 .type {
     background-color: transparent;
 }
@@ -215,6 +229,18 @@ footer {
     float: right;
     font-size: 28px;
     font-weight: bold;
+    cursor: pointer;
+}
+.go-back{
+    border: 1.5px solid #fff;
+    border-radius: 25px;
+    background-color:  rgba(37, 40, 56);  
+    border: 1px solid #888;
+    color: #fff;
+    font-family: 'Allerta Stencil';
+    font-size: 1em;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 /* Smartphone */
@@ -263,7 +289,7 @@ footer {
         width: 40px;
         height: 40px;
     }
-    /* Boton volver al juego */
+    /* Boton volver al jue   */
     .btn-welcome {
         margin-top: 5%;
         display: flex;
@@ -329,10 +355,7 @@ footer {
         height: 65%;
         overflow-y: scroll; /* Enable scroll if needed */ 
     }
-    .div-about{
-        width: 200px;
-        height: auto;
-    }
+    
 }
 /* Tablet */
 @media screen and (max-width: 799px) and (min-width: 600px) {

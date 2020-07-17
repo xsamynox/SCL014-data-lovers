@@ -28,7 +28,8 @@ closeModal.addEventListener('click', () => {
 const crearPlantillaModal = (name, num, image, about, type, resistant, weaknesses) => `
         <section>
         <section>
-          <h2>${name}<br>#${num}</h2>
+          <h2 class="tittle-modal">${name}</h2>
+          <h3>#${num}</h3>
         </section>
         <section>
           <img src="${image}" alt="${name}">
@@ -64,9 +65,9 @@ const asignarEvento = () => {
         pokemonEncontrado.num,
         pokemonEncontrado.img,
         pokemonEncontrado.about,
-        pokemonEncontrado.type.join(',  '),
-        pokemonEncontrado.resistant.join(',  '),
-        pokemonEncontrado.weaknesses.join(',  '),
+        pokemonEncontrado.type.join(', '),
+        pokemonEncontrado.resistant.join(', '),
+        pokemonEncontrado.weaknesses.join(', '),
       );
       imprimirEnModal(pokemonImpreso);
       modal.style.display = 'block';
