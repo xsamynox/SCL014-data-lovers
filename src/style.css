@@ -80,9 +80,7 @@ button{
     font-family: 'Allerta Stencil';
 }
 .tag:hover{
-    font-size: 1em;
     background-color: rgba(255,255,255,0.50);
-    height: 50px;
 }
 .tag2{
     width: 30px;
@@ -143,18 +141,28 @@ input {
 }
 .name-pokemon{
     text-align: center;
+    text-align: -webkit-center;
+    text-align: -moz-center;
     line-height: 0px;
     width: 150px;   
     height: auto;
     margin: 1%;
     transition: width 1s, height 1s;    
-    cursor: pointer; 
+    cursor: pointer;
 }
-.name-pokemon:hover{
-    transform: scale(1.2,1.2);    
+.name-pokemon:hover .img-pokemon .pokeball-img{
+    display: block;
+    width: 90px;
+}
+.name-pokemon:hover .img-pokemon .pokemon-img{
+    display: none;
 }
 section.img-pokemon {
     background: rgba(243, 242, 242, 0.25);
+}
+section.img-pokemon:hover {
+    background: transparent;
+
 }
 footer {
     position: absolute;
@@ -211,7 +219,6 @@ strong{
 .div-about{
     width: 95%;
     height: auto;
-    /* background-color: rgb(211, 206, 206); */
     padding: 5px;
     border-radius: 15px;
     text-align: justify;
@@ -242,7 +249,14 @@ strong{
     margin-top: 10px;
     margin-left: 10px;
 }
-
+.pokeball-img{
+    display: none;
+    width: 134px;
+    height: auto;
+}
+.pokemon-img{
+    display: block;
+}
 /* Smartphone */
 @media screen and (max-width: 736px) and (min-width: 320px) {
     body{

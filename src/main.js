@@ -79,7 +79,8 @@ const asignarEvento = () => {
 const crearPlantillaPokemon = (name, image, num) => `
         <button class="name-pokemon" data-pokemon="${num}"> 
             <section class="img-pokemon">
-            <img id="imagen-cada-poke" src="${image}" alt="${name}">
+              <img src="https://cdn.lowgif.com/small/7d9ca40f5d37c1b3-transparent-pokeball-tumblr.gif" alt="" class="pokeball-img">
+              <img id="imagen-cada-poke" src="${image}" alt="${name}" class="pokemon-img">
             </section>
             <h2>#${num}</h2>
             <h1>${name}</h1>

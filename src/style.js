@@ -32,6 +32,7 @@ const irPokedex = () => {
     main.style.display = 'block';
     screenWelconme.style.display = 'none';
     screenNidos.style.display = 'none';
+    screenGlossary.style.display = 'none';
     goBack.style.display = 'none';
     if (screenSize.matches) { // If media query matches
       body.style.backgroundImage = 'url(./imagen/banner-sky2-01a.png)';
@@ -53,6 +54,7 @@ const openNidos = () => {
     screenWelconme.style.display = 'none';
     main.style.display = 'none';
     screenNidos.style.display = 'block';
+    screenGlossary.style.display = 'none';
     if (screenSize.matches) { // Smartphone / If media query matches
       body.style.backgroundImage = 'url(./imagen/pantalla-nidos1.png)';
       aside.style.display = 'flex';
@@ -75,6 +77,7 @@ const goEvolution = () => {
     screenWelconme.style.display = 'none';
     main.style.display = 'none';
     screenNidos.style.display = 'none';
+    screenGlossary.style.display = 'none';
     screenEvolution.style.display = 'block';
     if (screenSize.matches) { // Smartphone / If media query matches
       body.style.backgroundImage = 'url(./imagen/banner-sky2-01a.png)';
