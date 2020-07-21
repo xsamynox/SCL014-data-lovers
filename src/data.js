@@ -1,8 +1,6 @@
 
-import data from './data/pokemon/pokemon.js';
-
-export const obtenerTipos = () => {
-  const tipos = data.pokemon.flatMap(pokemonAtrib => pokemonAtrib.type);
+export const obtenerTipos = (pokemones) => {
+  const tipos = pokemones.flatMap(pokemonAtrib => pokemonAtrib.type);
   const tiposUnicos = [...new Set(tipos)];
   return tiposUnicos;
 };
@@ -41,15 +39,15 @@ export const ordenarPokemon = (orden, pokemones) => {
 };
 
 // Filtrar en conjunto
-export const filtroEnConjunto = (orden, tipoSeleccionado, nombreBuscado) => {
-  const pokemonesFiltradoPorTipo = filtrarPorTipo(tipoSeleccionado, data.pokemon);
+export const filtroEnConjunto = (orden, tipoSeleccionado, nombreBuscado, pokemones) => {
+  const pokemonesFiltradoPorTipo = filtrarPorTipo(tipoSeleccionado, pokemones);
   const ordenPorNombreTipo = filtrarPorNombre(nombreBuscado, pokemonesFiltradoPorTipo);
   const pokemonesPorNombreTipoOrdenados = ordenarPokemon(orden, ordenPorNombreTipo);
   return pokemonesPorNombreTipoOrdenados;
 };
 
 // Buscar id de cada pokemon
-export const buscarId = ((pokemonNumber) => {
-  const pokemonNum = data.pokemon.find(pokemon => pokemon.num === pokemonNumber);
+export const buscarId = ((pokemonNumber, pokemones) => {
+  const pokemonNum = pokemones.find(pokemon => pokemon.num === pokemonNumber);
   return pokemonNum;
 });

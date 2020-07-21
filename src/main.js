@@ -1,11 +1,10 @@
-import data from './data/pokemon/pokemon.js';
 
 import {
   obtenerTipos, filtroEnConjunto, buscarId,
 }
   from './data.js';
-
-// Obtener ID de elementos
+let pokemones = [];
+  // Obtener ID de elementos
 const buscadorDeId = identificador => document.getElementById(identificador);
 // Selector de a-z
 const selectorPorOrden = buscadorDeId('selectOrder');
@@ -59,7 +58,7 @@ const asignarEvento = () => {
   document.querySelectorAll('[data-pokemon]').forEach((button) => {
     button.addEventListener('click', () => {
       const id = button.dataset.pokemon;
-      const pokemonEncontrado = buscarId(id);
+      const pokemonEncontrado = buscarId(id, pokemones);
       const pokemonImpreso = crearPlantillaModal(
         pokemonEncontrado.name.charAt(0).toUpperCase() + pokemonEncontrado.name.slice(1),
         pokemonEncontrado.num,
@@ -110,7 +109,7 @@ selectorPorOrden.addEventListener('change', () => {
   const tipoSeleccionado = selectorTipoPokemon.value;
   const nombreBuscado = inputNombrePokemon.value;
   containerPokedex.innerHTML = '';
-  const ordenados = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado);
+  const ordenados = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado, pokemones);
   pintarEnPantalla(ordenados);
   asignarEvento(); // Permite que se abra el modal despues de aplicados los filtros
 });
@@ -142,7 +141,7 @@ selectorTipoPokemon.addEventListener('change', () => {
   const orden = selectorPorOrden.value;
   const tipoSeleccionado = selectorTipoPokemon.value;
   const nombreBuscado = inputNombrePokemon.value;
-  const pokemonesFiltradosPorTipo = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado);
+  const pokemonesFiltradosPorTipo = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado, pokemones);
   pintarEnPantalla(pokemonesFiltradosPorTipo);
   asignarEvento(); // Permite que se abra el modal despues de aplicados los filtros
 });
@@ -152,7 +151,7 @@ inputNombrePokemon.addEventListener('input', () => {
   const orden = selectorPorOrden.value;
   const tipoSeleccionado = selectorTipoPokemon.value;
   const nombreBuscado = inputNombrePokemon.value;
-  const pokemonesFiltrados = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado);
+  const pokemonesFiltrados = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado, pokemones);
   pintarEnPantalla(pokemonesFiltrados);
   asignarEvento(); // Permite que se abra el modal despues de aplicados los filtros
 });
@@ -164,33 +163,18 @@ window.addEventListener('click', (event) => {
   }
 });
 
-// recorremos el arreglo de todos los pokemones
-pintarEnPantalla(data.pokemon);
-
-// asignar evento a cada pokemon de la pantalla
-asignarEvento();
-
-// Mostrar en pantala los tipos seleccionados.
-pintarEnSelector(obtenerTipos());
-
-/*
-const cambiarBorder = (tipo => {
-  console.log(tipo[0]);
-  const tipoPosible = tipo[0];
-  const tipologia = tipo;
-  tipologia.forEach(tipoPosible => {
-    const valor = tipoPosible;
-    console.log(valor);
-    const bodyPrueba = document.getElementsByTagName('body');
-    if (valor === 'grass'){
-      bodyPrueba.style.display.backgroundColor = 'green';
-    } else {
-      bodyPrueba.style.color = '#ffff'
-    }
-});
-
-});
-
-cambiarBorder(obtenerTipos());
-console.log(obtenerTipos());
-*/
+fetch('https://adbarquitectura.github.io/SCL014-data-lovers/data/pokemon/pokemon.json')
+  .then(function(response) {
+    console.log(response);
+    return response.json();
+  })
+  .then(function(data) {
+    console.log(data);    
+    pokemones = data.pokemon;
+    // Mostrar en pantala los tipos seleccionados.
+    pintarEnSelector(obtenerTipos(pokemones));
+    // mostrar el arreglo de todos los pokemones
+    pintarEnPantalla(pokemones);
+    // asignar evento a cada pokemon de la pantalla
+    asignarEvento();   
+  });

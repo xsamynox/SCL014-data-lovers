@@ -8,7 +8,7 @@ import data from '../src/data/pokemon/pokemon.js';
 describe('buscando tipos de pokemon', () => {
   it('obtener los tipos de pokemon', () => {
     // act
-    const tiposPokemon = obtenerTipos();
+    const tiposPokemon = obtenerTipos(data.pokemon);
     // assert
     expect(tiposPokemon.length).toBe(18);
   });
@@ -78,7 +78,7 @@ describe('Va a mostrar los pokemones considerando ordenar, los filtros por tipo,
     const tipoSeleccionado = 'grass';
     const nombreBuscado = 'bell';
     // act
-    const pokemones = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado);
+    const pokemones = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado, data.pokemon);
     // assert
     expect(pokemones[0].name).toBe('bellossom');
     expect(pokemones[1].name).toBe('bellsprout');
@@ -90,7 +90,7 @@ describe('Va a mostrar los pokemones considerando ordenar, los filtros por tipo,
     const tipoSeleccionado = 'grass';
     const nombreBuscado = 'bell';
     // act
-    const pokemones = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado);
+    const pokemones = filtroEnConjunto(orden, tipoSeleccionado, nombreBuscado, data.pokemon);
     // assert
     expect(pokemones[0].name).toBe('weepinbell');
     expect(pokemones[1].name).toBe('bellsprout');
@@ -102,7 +102,7 @@ describe('obtener detalle de pokemon', () => {
     // arrange
     const pokemonNum = '001';
     // act
-    const pokemonByNum = buscarId(pokemonNum);
+    const pokemonByNum = buscarId(pokemonNum, data.pokemon);
     // assert
     expect(pokemonByNum.num).toBe('001');
     expect(pokemonByNum.name).toBe('bulbasaur');
