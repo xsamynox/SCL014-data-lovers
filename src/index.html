@@ -98,10 +98,9 @@
           <p>Glosario</p>
         </button>
     </aside>
-
      <!--Boton volver-->
     <button class="not-visible go-back" id="go-back">
-      <p>Volver</p>
+      <img src="./imagen/volver.png" alt="volver">
     </button>
 
      <!--Sección Nidos-->
@@ -111,12 +110,40 @@
 
      <!--Sección Evolución-->
      <section id="section-evolution" class="not-visible">
-      
+     <section>
+      <canvas id="myChart"></canvas>
+     </section>      
     </section>
 
     <!--Sección Glosario-->
     <section id="section-glossary" class="not-visible">
-      
+      <section class="container-glossary">
+        <h1>Glosario</h1>
+        <ul class="list">
+          <li>
+            <b>Lv = Nv:</b><br>Nivel del Pokémon, de 1 a 100.
+          </li> 
+          <li>
+            <b>Stat:</b><br>Parámetros de los Pokémon. Son PS, Ataque, Defensa, Ataque Especial, Defensa Especial y Velocidad. En batalla se añaden Evasión y Precisión.
+          </li> 
+          <li>
+            <b>Stat base:</b><br>Número característico en un stat determinado de una especie de Pokémon, que determina principalmente sus stats finales.
+          </li>
+          <li>
+            <b>IV's = DV's = Genes:</b><br>De Individual Values. Aquellos valores que toma un stat determinado en un Pokémon determinado.
+          </li>
+          <li>
+            <b>EV's = EP's = PE:</b><br>De Effort Values. Aquellos valores de esfuerzo que un Pokémon gana al derrotar a otros Pokémon, dependendiendo de su especie. No confundir con puntos de experiencia.
+          </li>
+          <li>
+            <b>Nature = Naturaleza:</b><br>Personalidad del Pokémon que influirá en sus stats. Siempre beneficia a un stat y perjudica a otro en un 10% (dicho stat puede verse beneficiado y perjudicado a la vez).
+          </li>
+          <li>
+            <b>Trait = Habilidad:</b><br>Habilidad omnipresente de un Pokémon en batalla, con diversos beneficios (o perjuicios).  
+        </li>
+      </ul>
+    </section>
+
     </section>
 
     <footer>
@@ -125,5 +152,7 @@
 
     <script src="main.js" type="module"></script>
     <script src="style.js" type="module"></script>
+    <script src="graficos.js" type="module"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>       
   </body>
 </html>
