@@ -124,5 +124,7 @@ fetch('https://adbarquitectura.github.io/SCL014-data-lovers/data/pokemon/pokemon
     // mostrar el arreglo de todos los pokemones
     pintarEnPantalla(pokemones);
     // asignar evento a cada pokemon de la pantalla
-    asignarEvento();   
+    asignarEvento();
+    containerPokedex.dispatchEvent(new CustomEvent('pokemones-cargados', {detail: pokemones}));   
   });
+  
